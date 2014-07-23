@@ -9,8 +9,6 @@ Evernote.Routers.Router = Backbone.Router.extend({
   },
   
   notebooksIndex: function () {
-    console.log("index");
-    
     Evernote.Collections.notebooks.fetch();
     
     var indexView = new Evernote.Views.NotebooksIndex({

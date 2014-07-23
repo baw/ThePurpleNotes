@@ -7,7 +7,6 @@ Evernote.Views.NotebooksIndex = Backbone.View.extend({
   },
   
   render: function () {
-    console.log("render");
     var renderedContent = this.template({
       notebooks: this.collection.models
     });
