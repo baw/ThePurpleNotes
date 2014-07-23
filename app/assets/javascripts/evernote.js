@@ -7,7 +7,3 @@ window.Evernote = {
     alert('Hello from Backbone!');
   }
 };
-
-$(document).ready(function(){
-  Evernote.initialize();
-});
