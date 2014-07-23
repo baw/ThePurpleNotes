@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   
   validates :username, :password_diguest, :session_token, presence: true
   
+  has_many :notebooks
+  
   def User.find_by_credentials(username, password)
     user = User.find_by(username: username)
     

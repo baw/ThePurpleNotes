@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   
   root to: "static#root"
   get "/notes", to: "static#backbone", as: "backbone"
+  
+  namespace :api do
+    resources :notebooks
+  end
 end
