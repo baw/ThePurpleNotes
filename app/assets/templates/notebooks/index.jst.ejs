@@ -1,6 +1,10 @@
 <h1>Notebooks</h1>
 <ul>
   <% _(notebooks).each(function (notebook) { %>
-    <li><%= notebook.escape("title") %></li>
+    <li>
+      <a href="#/notebooks/<%= notebook.escape('id') %>">
+        <%= notebook.escape("title") %>
+      </a>
+    </li>
   <% }) %>
 </ul>
