@@ -11,18 +11,22 @@
 #
 
 class User < ActiveRecord::Base
-  before_validations :ensure_session_token
+  before_validation :ensure_session_token
   
   validates :username, :password_diguest, :session_token, presence: true
   
   def User.find_by_credentials(username, password)
     user = User.find_by(username: username)
     
-    if user.is_password(password)
+    if user.is_password?(password)
       user
     else
       nil
     end
+  end
+  
+  def generate_session_token
+    SecureRandom.urlsafe_base64(16)
   end
   
   def is_password?(password)
@@ -35,13 +39,15 @@ class User < ActiveRecord::Base
     self.password_diguest = BCrypt::Password.create(password)
   end
   
+  def reset_session_token!
+    self.session_token = self.generate_session_token
+    self.save!
+    self.session_token
+  end
+  
   private
   
   def ensure_session_token
-    self.session_token || self.generate_session_token
-  end
-  
-  def generate_session_token
-    SecureRandom.urlsafe_base64(16)
+    self.session_token ||= self.generate_session_token
   end
 end

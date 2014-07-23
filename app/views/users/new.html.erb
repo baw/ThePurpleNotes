@@ -1,0 +1,15 @@
+<h1>Sign up</h1>
+
+<form action="<%= users_url %>" method="POST">
+  <%= fat_adder %>
+  
+  <label>Username
+    <input type="text" name="user[username]">
+  </label>
+  
+  <label>Password
+    <input type="password" name="user[password]">
+  </label>
+  
+  <input type="submit" value="Create User">
+</form>
