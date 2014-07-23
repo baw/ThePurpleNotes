@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/notes", to: "static#backbone", as: "backbone"
   
   namespace :api do
-    resources :notebooks
+    resources :notebooks do
+      resources :notes
+    end
   end
 end
