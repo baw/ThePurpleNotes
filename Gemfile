@@ -20,5 +20,7 @@ group :development do
   gem 'quiet_assets'
   gem 'annotate'
   
+  gem 'rspec-rails'
+  
   gem 'spring'
 end
