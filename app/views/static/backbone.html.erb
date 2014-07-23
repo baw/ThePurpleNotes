@@ -1,9 +1,15 @@
 <h1>Notes</h1>
 
-<div id="main"></div>
+<div>
+  <div class="leftSidebar">
+    <div class="notebooks"></div>
+  </div>
 
+  <div class="notes"></div>
+  <div class="noteEditor"></div>
+</div>
 <script>
 $(function(){
-  Evernote.initialize();
+  Evernote.initialize($(".notebooks"), $(".notes"), $(".noteEditor"));
 });
 </script>
