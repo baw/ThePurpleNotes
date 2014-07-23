@@ -3,13 +3,17 @@
 <form action="<%= users_url %>" method="POST">
   <%= fat_adder %>
   
-  <label>Username
-    <input type="text" name="user[username]">
-  </label>
+  <div class="form-group">
+    <label>Username
+      <input type="text" class="form-control" name="user[username]">
+    </label>
+  </div>
   
-  <label>Password
-    <input type="password" name="user[password]">
-  </label>
+  <div class="form-group">
+    <label>Password
+      <input type="password" class="form-control" name="user[password]">
+    </label>
+  </div>
   
-  <input type="submit" value="Create User">
+  <button class="btn btn-primary">Create User</button>
 </form>
