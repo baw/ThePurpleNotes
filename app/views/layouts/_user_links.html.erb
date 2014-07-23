@@ -4,10 +4,19 @@
                 method: :delete,
                 class: "btn btn-danger navbar-btn" %></li>
 <% else %>
-  <li><%= link_to "Sign In",
-          new_session_url,
-          class: "btn btn-primary navbar-btn" %></li>
-  <li><%= link_to "Sign Up",
-          new_user_url,
-          class: "btn btn-primary navbar-btn" %></li>
+  <li>
+    <form>
+      <a href="<%= new_session_url %>" class="btn btn-primary navbar-btn">
+        Log In
+      </a>
+    </form>
+  </li>
+  
+  <li>
+    <form>
+      <a href="<%= new_user_url %>" class="btn btn-primary navbar-btn">
+        Sign Up
+      </a>
+    </form>
+  </li>
 <% end %>
