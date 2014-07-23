@@ -11,7 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 gem 'underscore-rails'
-gem 'backbone-rails'
+gem 'backbone-on-rails'
 
 group :development do
   gem 'better_errors'
