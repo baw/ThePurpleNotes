@@ -1,11 +1,16 @@
+/*global Evernote, JST, EpicEditor */
 Evernote.Views.NoteShow = Backbone.View.extend({
   template: JST["notes/show"],
   events: {
     "click .save": "saveContents",
-    "keyup #noteEditor": "autoSave"
+    "keyup": "autoSave"
   },
   
   afterRender: function () {
+    this.editor = new EpicEditor({
+      file: { defaultContent: this.model.escape("content") }
+    }).load();
+    this.editor.on("autosave", this.autoSave.bind(this));
   },
   
   autoSave: function () {
@@ -32,7 +37,7 @@ Evernote.Views.NoteShow = Backbone.View.extend({
   },
   
   saveContents: function (event) {
-    var content = this.$("#noteEditor").text();
+    var content = this.editor.exportFile();
     this.model.save({ "content": content });
   }
 });

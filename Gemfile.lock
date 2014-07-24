@@ -69,6 +69,8 @@ GEM
       execjs
     eco-source (1.1.0.rc.1)
     ejs (1.1.1)
+    epic-editor-rails (0.2.3)
+      railties (>= 3.2, < 5.0)
     erubis (2.7.0)
     execjs (2.2.1)
     hike (1.2.3)
@@ -176,6 +178,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.2.0)
+  epic-editor-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
