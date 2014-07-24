@@ -8,9 +8,9 @@ Evernote.Views.NotebookNew = Backbone.View.extend({
   
   formSubmit: function (event) {
     event.preventDefault();
-    var $boardTitle = this.$("#boardTitle");
-    var title = $boardTitle.val();
-    $boardTitle.val("");
+    var $notebookTitle = this.$("#notebookTitle");
+    var title = $notebookTitle.val();
+    $notebookTitle.val("");
     
     Evernote.Collections.notebooks.create({
       "title": title
