@@ -1,6 +1,21 @@
-/*global Evernote, JST */
+/*global EpicEditor, Evernote, JST */
 Evernote.Views.NoteShow = Backbone.View.extend({
+  events: {
+    "click .save":"saveContent",
+    "click .delete": "deleteContent"
+  },
   template: JST["notes/show"],
+  
+  afterRender: function () {
+    Evernote.editor = new EpicEditor({
+      clientSideStorage: false
+    });
+    
+    Evernote.editor.load();
+    Evernote.editor.importFile(this.model.escape("title"),
+                               this.model.escape("content"));
+    Evernote.editor.on("autosave", this.autoSave.bind(this));
+  },
   
   autoSave: function () {
     var view = this;
@@ -13,21 +28,21 @@ Evernote.Views.NoteShow = Backbone.View.extend({
   
   deleteContent: function () {
     this.model.destroy();
+    this.model = null;
   },
   
-  initialize: function (options) {
-    $(document).off("click.save");
-    $(document).off("click.delete");
-    $(document).on("click.save", ".save", this.saveContent.bind(this));
-    $(document).on("click.delete", ".delete", this.deleteContent.bind(this));
+  remove: function () {
+    this.model && this.saveContent();
+    Backbone.View.prototype.remove.call(this);
+    Evernote.editor.removeListener("autosave");
   },
   
   render: function () {
-    $("#noteShowTitle").html(this.model.escape("title"));
+    var renderedContent = this.template({
+      note: this.model
+    });
     
-    Evernote.editor.importFile(this.model.escape("title"), this.model.escape("content"));
-    Evernote.editor.removeListener("autosave");
-    Evernote.editor.on("autosave", this.autoSave.bind(this));
+    this.$el.html(renderedContent);
     
     return this;
   },

@@ -1,4 +1,4 @@
-/*global Evernote, EpicEditor */
+/*global Evernote */
 window.Evernote = {
   Models: {},
   Collections: {},
@@ -18,10 +18,6 @@ window.Evernote = {
     Evernote.Collections.notebooks = new Evernote.Collections.Notebooks();
     
     Evernote.Views.renderNotebooks($notebooks);
-    
-    Evernote.editor = new EpicEditor({
-      clientSideStorage: false
-    }).load();
     
     new Evernote.Routers.Router({
       $notebooks: $notebooks,

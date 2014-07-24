@@ -32,7 +32,9 @@ Evernote.Routers.Router = Backbone.Router.extend({
       model: note,
       notebookId: notebookId
     });
-    noteShowView.render();
+    
+    this._swapViews("noteEditor", noteShowView);
+    noteShowView.afterRender();
   },
   
   _swapViews: function (area, view) {
