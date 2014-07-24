@@ -25,7 +25,16 @@ Evernote.Routers.Router = Backbone.Router.extend({
   
   //shows the note in the noteditor
   noteShow: function (notebookId, noteId) {
+    var notebook = Evernote.Collections.notebooks.getOrFetch(notebookId);
+    var note = notebook.notes().getOrFetch(noteId);
     
+    var noteShowView = new Evernote.Views.NoteShow({
+      model: note,
+      notebookId: notebookId
+    });
+    
+    this._swapViews("noteEditor", noteShowView);
+    noteShowView.afterRender();
   },
   
   _swapViews: function (area, view) {

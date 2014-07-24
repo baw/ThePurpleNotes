@@ -2,14 +2,16 @@
 Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   template: JST["notebooks/show"],
   
-  initialize: function () {
+  initialize: function (options) {
+    
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.notes(), "sync add, remove", this.render);
   },
   
   render: function () {
     var renderContent = this.template({
-      notes: this.model.notes().models
+      notes: this.model.notes().models,
+      notebookId: this.model.escape("id")
     });
     
     this.$el.html(renderContent);
