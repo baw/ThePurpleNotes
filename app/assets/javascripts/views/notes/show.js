@@ -1,4 +1,3 @@
-/*global Evernote, JST, Pen */
 Evernote.Views.NoteShow = Backbone.View.extend({
   template: JST["notes/show"],
   events: {
@@ -7,7 +6,6 @@ Evernote.Views.NoteShow = Backbone.View.extend({
   },
   
   afterRender: function () {
-    this.pen = new Pen("#noteEditor");
   },
   
   autoSave: function () {

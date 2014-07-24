@@ -16,8 +16,6 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require pen
-//= require markdown
 //= require evernote
 //= require_tree ./utilities/
 //= require_tree ../templates
