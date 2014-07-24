@@ -6,7 +6,5 @@ Evernote.Collections.Notes = Backbone.Collection.extend({
     this.notebook = options.notebook;
   },
   
-  url: function () {
-    return this.notebook.url() + "/notes";
-  }
+  url: "api/notes"
 });
