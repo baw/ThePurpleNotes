@@ -1,8 +1,8 @@
-<h1>Notes</h1>
+<h1><%= notebook.escape("title") %></h1>
 <ul class="list-group">
   <% _(notes).each(function (note) { %>
     <li class="list-group-item">
-      <a href="#/notebooks/<%= notebookId %>/notes/<%= note.escape('id') %>">
+      <a href="#/notebooks/<%= notebook.escape('id') %>/notes/<%= note.escape('id') %>">
         <%= note.escape("title") %>
       </a>
     </li>
