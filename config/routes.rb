@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :notebooks do
-      resources :notes, except: [:show]
+      # resources :notes, except: [:show]
     end
     
-    resources :notes, only: [:show]
+    resources :notes
   end
 end
