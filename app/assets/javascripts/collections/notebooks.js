@@ -3,6 +3,8 @@ Evernote.Collections.Notebooks = Backbone.Collection.extend({
   url: "api/notebooks",
   model: Evernote.Models.Notebook,
   
+  comparator: "title",
+  
   getOrFetch: function (id) {
     var notebooks = this;
     
