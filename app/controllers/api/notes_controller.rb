@@ -11,6 +11,7 @@ class Api::NotesController < ApplicationController
   
   def create
     @note = Note.new(note_params)
+    @note.notebook_id = params[:notebook_id]
     
     if @note.save
       render json: @note
@@ -27,5 +28,11 @@ class Api::NotesController < ApplicationController
     else
       render json: @note.errors, status: :unprocessable_entity
     end
+  end
+  
+  private
+  
+  def note_params
+    params.permit(:title)
   end
 end

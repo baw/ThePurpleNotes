@@ -1,3 +1,6 @@
-<% _(notes).each(function (note) { %>
-  <li><%= note.escape("title") %></li>
-<% }) %>
+<ul class="list-group">
+  <% _(notes).each(function (note) { %>
+    <li class="list-group-item"><%= note.escape("title") %></li>
+  <% }) %>
+</ul>
+<div class="newNoteForm"></div>

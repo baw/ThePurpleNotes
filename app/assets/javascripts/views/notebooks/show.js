@@ -1,6 +1,5 @@
 /*global Evernote, JST*/
-Evernote.Views.NotebookShow = Backbone.View.extend({
-  tagName: "ul",
+Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   template: JST["notebooks/show"],
   
   initialize: function () {
@@ -15,6 +14,16 @@ Evernote.Views.NotebookShow = Backbone.View.extend({
     
     this.$el.html(renderContent);
     
+    this.renderNoteNew();
+    
     return this;
+  },
+  
+  renderNoteNew: function () {
+    var renderedNoteNewView = new Evernote.Views.NoteNew({
+      collection: this.model.notes()
+    });
+    
+    this.addSubview(".newNoteForm", renderedNoteNewView);
   }
 });
