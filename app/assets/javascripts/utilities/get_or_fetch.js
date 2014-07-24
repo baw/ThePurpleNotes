@@ -6,9 +6,10 @@ Backbone.Collection.prototype.getOrFetch = function (id) {
     obj.fetch();
   } else {
     obj = new this.model({ "id": id });
+    this.add(obj);
     obj.fetch({
-      success: function () {
-        that.add(obj);
+      error: function () {
+        that.remove(obj);
       }
     });
   }

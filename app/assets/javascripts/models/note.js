@@ -1,4 +1,6 @@
 /*global Evernote */
 Evernote.Models.Note = Backbone.Model.extend({
-  urlRoot: "api/notes"
+  urlRoot: function () {
+    return this.collection.notebook.url() + "/notes/";
+  }
 });
