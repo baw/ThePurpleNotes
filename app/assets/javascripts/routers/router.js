@@ -30,7 +30,7 @@ Evernote.Routers.Router = Backbone.Router.extend({
   
   _swapViews: function (area, view) {
     this._currentViews = this._currentViews || {};
-    this._currentViews[area] && this._currentViews.remove();
+    this._currentViews[area] && this._currentViews[area].remove();
     this._currentViews[area] = view;
     this.$selectors[area].html(view.render().$el);
   }

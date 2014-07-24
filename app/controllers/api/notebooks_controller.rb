@@ -1,6 +1,6 @@
 class Api::NotebooksController < ApplicationController
   def index
-    @notebooks = Notebook.find_by(user_id: current_user.id)
+    @notebooks = Notebook.where(user_id: current_user.id)
     render json: @notebooks
   end
   
