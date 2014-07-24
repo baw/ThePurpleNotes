@@ -1,5 +1,5 @@
 /*global EpicEditor, Evernote, JST */
-Evernote.Views.NoteShow = Backbone.View.extend({
+Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   events: {
     "click .save":"saveContent",
     "click .delete": "deleteContent"
@@ -33,7 +33,7 @@ Evernote.Views.NoteShow = Backbone.View.extend({
   
   remove: function () {
     this.model && this.saveContent();
-    Backbone.View.prototype.remove.call(this);
+    Backbone.CompositeView.prototype.remove.call(this);
     Evernote.editor.removeListener("autosave");
   },
   
@@ -43,8 +43,17 @@ Evernote.Views.NoteShow = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
+    this.renderTitle();
     
     return this;
+  },
+  
+  renderTitle: function () {
+    var noteTitleView = new Evernote.Views.NoteTitle({
+      model: this.model
+    });
+    
+    this.addSubview("#noteShowTitle", noteTitleView);
   },
   
   saveContent: function (event) {

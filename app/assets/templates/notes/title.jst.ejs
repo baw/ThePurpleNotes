@@ -1,0 +1,8 @@
+<% if (edit) { %>
+  <form>
+    <input type="text" id="newTitle" value="<%= note.escape("title") %>">
+  </form>
+<% } else { %>
+  <h1 class="noteTitle"><%= note.escape("title") %></h1>
+  <a href="#" class="editTitle">-- Edit Title</a>
+<% } %>

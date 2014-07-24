@@ -1,0 +1,11 @@
+.editTitle {
+  display: none;
+}
+
+#noteShowTitle:hover .editTitle {
+  display: inline-block;
+}
+
+.noteTitle, #noteShowTitle {
+  display: inline-block;
+}
