@@ -1,43 +1,39 @@
-/*global Evernote, JST, EpicEditor */
+/*global Evernote, JST */
 Evernote.Views.NoteShow = Backbone.View.extend({
   template: JST["notes/show"],
-  events: {
-    "click .save": "saveContents",
-    "keyup": "autoSave"
-  },
-  
-  afterRender: function () {
-    this.editor = new EpicEditor({
-      file: { defaultContent: this.model.escape("content") }
-    }).load();
-    this.editor.on("autosave", this.autoSave.bind(this));
-  },
   
   autoSave: function () {
     var view = this;
-
+    
     this.timeout && clearTimeout(this.timeout);
     this.timeout = setTimeout(function () {
-      view.saveContents();
+      view.saveContent();
     }, 2000);
   },
-
+  
+  deleteContent: function () {
+    this.model.destroy();
+  },
+  
   initialize: function (options) {
-    var that = this;
+    $(document).off("click.save");
+    $(document).off("click.delete");
+    $(document).on("click.save", ".save", this.saveContent.bind(this));
+    $(document).on("click.delete", ".delete", this.deleteContent.bind(this));
   },
   
   render: function () {
-    var renderedContent = this.template({
-      note: this.model
-    });
+    $("#noteShowTitle").html(this.model.escape("title"));
     
-    this.$el.html(renderedContent);
+    Evernote.editor.importFile(this.model.escape("title"), this.model.escape("content"));
+    Evernote.editor.removeListener("autosave");
+    Evernote.editor.on("autosave", this.autoSave.bind(this));
     
     return this;
   },
   
-  saveContents: function (event) {
-    var content = this.editor.exportFile();
+  saveContent: function (event) {
+    var content = Evernote.editor.exportFile();
     this.model.save({ "content": content });
   }
 });
