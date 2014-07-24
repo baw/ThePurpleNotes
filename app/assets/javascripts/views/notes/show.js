@@ -2,13 +2,23 @@
 Evernote.Views.NoteShow = Backbone.View.extend({
   template: JST["notes/show"],
   events: {
-    "click .save": "saveContents"
+    "click .save": "saveContents",
+    "keyup #noteEditor": "autoSave"
   },
   
   afterRender: function () {
     this.pen = new Pen("#noteEditor");
   },
   
+  autoSave: function () {
+    var view = this;
+
+    this.timeout && clearTimeout(this.timeout);
+    this.timeout = setTimeout(function () {
+      view.saveContents();
+    }, 2000);
+  },
+
   initialize: function (options) {
     var that = this;
   },
