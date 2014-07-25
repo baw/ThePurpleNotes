@@ -16,9 +16,12 @@ Evernote.Views.TagsNew = Backbone.View.extend({
   
   submitForm: function (event) {
     event.preventDefault();
-    var tagName = $("#tagName").val();
+    var $tagName = $("#tagName");
+    var tagName = $tagName.val();
     this.collection.create({
       title: tagName
     });
+    
+    $tagName.val("");
   }
 });
