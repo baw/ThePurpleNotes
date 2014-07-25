@@ -3,7 +3,7 @@ Evernote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   template: JST["notebooks/index"],
   
   initialize: function () {
-    this.listenTo(this.collection, "sync add change:title", this.render);
+    this.listenTo(this.collection, "sync add change:title remove", this.render);
   },
   
   render: function () {
