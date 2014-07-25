@@ -1,5 +1,6 @@
 /*global Evernote */
 Evernote.Models.Notebook = Backbone.Model.extend({
+  associatedWithName: "notes",
   urlRoot: "api/notebooks",
   
   notes: function () {
@@ -10,14 +11,5 @@ Evernote.Models.Notebook = Backbone.Model.extend({
     }
     
     return this._notes;
-  },
-  
-  parse: function (jsonResponse) {
-    if (jsonResponse.notes) {
-      this.notes().set(jsonResponse.notes, { parse: true });
-      delete jsonResponse.notes;
-    }
-    
-    return jsonResponse;
   }
 });
