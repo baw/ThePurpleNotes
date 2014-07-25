@@ -6,7 +6,7 @@ class Api::NotesController < ApplicationController
   
   def show
     @note = Note.find(params[:id])
-    render json: @note
+    render json: @note, include: :tags
   end
   
   def create
