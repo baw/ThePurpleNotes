@@ -49,6 +49,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.renderTitle();
     this.renderTags();
+    this.renderTagsNew();
     
     return this;
   },
@@ -61,6 +62,14 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
       });
       view.addSubview(".tags", tagView);
     });
+  },
+  
+  renderTagsNew: function () {
+    var tagsNew = new Evernote.Views.TagsNew({
+      collection: this.model.tags()
+    });
+    
+    this.addSubview(".tagsNew", tagsNew);
   },
   
   renderTitle: function () {
