@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :notebooks do
-      resources :notes
+      resources :notes do
+        resources :tags
+      end
     end
   end
 end
