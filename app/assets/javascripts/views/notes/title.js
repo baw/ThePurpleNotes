@@ -14,6 +14,8 @@ Evernote.Views.NoteTitle = Backbone.View.extend({
       "title": title
     });
     
+    this.model.collection.sort();
+    
     this.edit = false;
     this.render();
   },
