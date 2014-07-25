@@ -1,11 +1,14 @@
-<h1><%= notebook.escape("title") %></h1>
-<ul class="list-group">
-  <% _(notes).each(function (note) { %>
-    <li class="list-group-item">
-      <a href="#/notebooks/<%= notebook.escape('id') %>/notes/<%= note.escape('id') %>">
-        <%= note.escape("title") %>
-      </a>
-    </li>
-  <% }) %>
-</ul>
-<div class="newNoteForm"></div>
+<a href="#"><%= notebook.escape("title") %></a>
+<div class="mp-level">
+  <h1><%= notebook.escape("title") %></h1>
+  <ul>
+    <% _(notes).each(function (note) { %>
+      <li class="icon icon-arrow-left">
+        <a href="#/notebooks/<%= notebook.escape('id') %>/notes/<%= note.escape('id') %>">
+          <%= note.escape("title") %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+<!-- <div class="newNoteForm"></div> -->

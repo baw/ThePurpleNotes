@@ -1,5 +1,6 @@
 /*global Evernote, JST*/
 Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
+  tagName: "li",
   template: JST["notebooks/show"],
   
   initialize: function (options) {

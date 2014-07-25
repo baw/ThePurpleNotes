@@ -8,6 +8,10 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   
   afterRender: function () {
     Evernote.editor = new EpicEditor({
+      autogrow: {
+        minHeight: 200,
+        maxHeight: 450
+      },
       clientSideStorage: false
     });
     

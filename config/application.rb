@@ -28,5 +28,6 @@ module Evernote
     # config.i18n.default_locale = :de
     
     config.assets.paths << "app/assets/templates"
+    config.assets.paths << "vender/assets/fonts"
   end
 end

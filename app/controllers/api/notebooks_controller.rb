@@ -1,7 +1,7 @@
 class Api::NotebooksController < ApplicationController
   def index
     @notebooks = Notebook.where(user_id: current_user.id)
-    render json: @notebooks
+    render json: @notebooks, include: :notes
   end
   
   def show

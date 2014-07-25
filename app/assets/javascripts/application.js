@@ -18,6 +18,9 @@
 //= require underscore
 //= require backbone
 //= require evernote
+//= require classie
+//= require modernizr.custom
+//= require mlpushmenu
 //= require_tree ./utilities/
 //= require_tree ../templates
 //= require_tree ./models

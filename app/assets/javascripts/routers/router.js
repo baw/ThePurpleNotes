@@ -1,6 +1,7 @@
 /*global Evernote */
 Evernote.Routers.Router = Backbone.Router.extend({
   routes: {
+    "": "notebookIndex",
     "notebooks/:id": "notebookShow",
     "notebooks/:id/notes/:id": "noteShow"
   },
@@ -10,6 +11,16 @@ Evernote.Routers.Router = Backbone.Router.extend({
     this.$selectors["notebooks"] = options.$notebooks;
     this.$selectors["notes"] = options.$notes;
     this.$selectors["noteEditor"] = options.$noteEditor;
+  },
+  
+  notebookIndex: function ($notebooks) {
+    Evernote.Collections.notebooks.fetch();
+    
+    var indexView = new Evernote.Views.NotebooksIndex({
+      collection: Evernote.Collections.notebooks
+    });
+    
+    this._swapViews("notebooks", indexView);
   },
   
   //Shows the notes for the current notebook

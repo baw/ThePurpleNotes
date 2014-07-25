@@ -1,16 +1,32 @@
-<div class="row">
-  <div class="col-xs-12">
-    <div class="row">
-      <div class="leftSidebar col-xs-3">
-        <div class="notebooks"></div>
-      </div>
+<div class="mp-pusher" id="mp-pusher">
+  <nav id="mp-menu" class="mp-menu">
+    <div class="mp-level notebooks">
+      <h2>Notebooks</h2>
+      
+    </div>
+  </nav>
+  
+  
+  <div class="scroller">
+    <div class="scroller-inner">
+      <div class="container topContainer">
+      <a href="#" id="trigger">Open</a>
 
-      <div class="notes col-xs-3"></div>
-      <div class="noteView col-xs-5"></div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="noteView col-xs-6"></div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
     </div>
   </div>
 </div>
-
+  
 <script>
 $(function(){
   Evernote.initialize($(".notebooks"), $(".notes"), $(".noteView"));

@@ -1,19 +1,21 @@
-<h1>Sign up</h1>
+<div class="container">
+  <h1>Sign up</h1>
 
-<form action="<%= users_url %>" method="POST">
-  <%= fat_adder %>
-  
-  <div class="input-group">
-    <label>Username
-      <input type="text" class="form-control" name="user[username]">
-    </label>
-  </div>
-  
-  <div class="input-group">
-    <label>Password
-      <input type="password" class="form-control" name="user[password]">
-    </label>
-  </div>
-  
-  <button class="btn btn-primary">Create User</button>
-</form>
+  <form action="<%= users_url %>" method="POST">
+    <%= fat_adder %>
+    
+    <div class="input-group">
+      <label>Username
+        <input type="text" class="form-control" name="user[username]">
+      </label>
+    </div>
+    
+    <div class="input-group">
+      <label>Password
+        <input type="password" class="form-control" name="user[password]">
+      </label>
+    </div>
+    
+    <button class="btn btn-primary">Create User</button>
+  </form>
+</div>
