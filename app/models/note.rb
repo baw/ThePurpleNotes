@@ -16,7 +16,7 @@ class Note < ActiveRecord::Base
   belongs_to :notebook
   
   has_many :notes
-  has_many :taggables
+  has_many :taggings
   
-  has_many :tags, through: :taggables, source: :tag
+  has_many :tags, through: :taggings, source: :tag
 end
