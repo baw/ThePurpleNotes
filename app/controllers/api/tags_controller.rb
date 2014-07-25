@@ -21,7 +21,7 @@ class Api::TagsController < ApplicationController
     @taggings = Tagging.new({note_id: params[:note_id], tag_id: @tag.id})
     
     if @taggings.save
-      render json: @taggings
+      render json: @tag
     else
       render json: @taggings.errors, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Api::TagsController < ApplicationController
   def destroy
     @tagging = Tagging.find_by(
       note_id: params[:note_id],
-      tag_id: params[:tag_id]
+      tag_id: params[:id]
     )
     @tagging.destroy
     

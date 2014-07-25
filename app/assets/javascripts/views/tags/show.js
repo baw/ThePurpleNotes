@@ -1,5 +1,10 @@
 /*global Evernote, JST */
 Evernote.Views.TagShow = Backbone.View.extend({
+  className: "tag",
+  events: {
+    "click .tagDelete" : "tagDelete"
+  },
+  tagName: "span",
   template: JST["tags/show"],
   
   initialize: function () {
@@ -14,5 +19,10 @@ Evernote.Views.TagShow = Backbone.View.extend({
     this.$el.html(renderContent);
     
     return this;
+  },
+  
+  tagDelete: function (event) {
+    event.preventDefault();
+    this.model.destroy();
   }
 });

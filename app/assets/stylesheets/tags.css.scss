@@ -1,0 +1,14 @@
+.tag {
+  background-color: #ccc;
+  padding: 3px 6px;
+  border-radius: 10px;
+  margin-right: 3px;
+}
+
+.tagDelete {
+  display: none;
+}
+
+.tag:hover .tagDelete {
+  display: inline-block;
+}
