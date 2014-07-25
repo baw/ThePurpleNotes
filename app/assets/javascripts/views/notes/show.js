@@ -55,6 +55,8 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   renderTags: function () {
+    this.$(".tags").html("");
+    
     var view = this;
     _(this.model.tags().models).each(function (tag) {
       var tagView = new Evernote.Views.TagShow({

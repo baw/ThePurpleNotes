@@ -19,7 +19,7 @@ Evernote.Views.TagsNew = Backbone.View.extend({
     var $tagName = $("#tagName");
     var tagName = $tagName.val();
     this.collection.create({
-      title: tagName
+      name: tagName
     });
     
     $tagName.val("");
