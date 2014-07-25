@@ -14,4 +14,9 @@ class Note < ActiveRecord::Base
   validates :notebook, presence: true
   
   belongs_to :notebook
+  
+  has_many :notes
+  has_many :taggables
+  
+  has_many :tags, through: :taggables, source: :tag
 end
