@@ -31,6 +31,10 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
     this.model = null;
   },
   
+  initialize: function () {
+    this.listenTo(this.model.tags(), "sync add remove", this.renderTags);
+  },
+  
   remove: function () {
     this.model && this.saveContent();
     Backbone.CompositeView.prototype.remove.call(this);
@@ -44,8 +48,19 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
     
     this.$el.html(renderedContent);
     this.renderTitle();
+    this.renderTags();
     
     return this;
+  },
+  
+  renderTags: function () {
+    var view = this;
+    _(this.model.tags().models).each(function (tag) {
+      var tagView = new Evernote.Views.TagShow({
+        model: tag
+      });
+      view.addSubview(".tags", tagView);
+    });
   },
   
   renderTitle: function () {
