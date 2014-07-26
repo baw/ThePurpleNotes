@@ -1,7 +1,6 @@
 class Api::TagsController < ApplicationController
   def index
-    @note = Note.find(params[:note_id])
-    @tags = @note.tags
+    @tags = current_user.tags
     
     render json: @tags
   end

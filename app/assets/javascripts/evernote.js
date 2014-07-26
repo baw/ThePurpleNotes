@@ -3,7 +3,7 @@ window.Evernote = {
   Models: {},
   Collections: {},
   Views: {
-    renderNotebooks: function ($notebooks) {
+    renderSidebar: function ($notebooks, $tags) {
       Evernote.Collections.notebooks.fetch();
       
       var indexView = new Evernote.Views.NotebooksIndex({
@@ -11,18 +11,28 @@ window.Evernote = {
       });
       
       $notebooks.html(indexView.render().$el);
+      
+      Evernote.Collections.tags.fetch();
+      
+      var tagsIndexView = new Evernote.Views.TagsIndex({
+        collection: Evernote.Collections.tags
+      });
+      
+      $tags.html(tagsIndexView.render().$el);
     }
   },
   Routers: {},
-  initialize: function($notebooks, $notes, $noteEditor) {
+  initialize: function($notebooks, $notes, $noteEditor, $tags) {
     Evernote.Collections.notebooks = new Evernote.Collections.Notebooks();
+    Evernote.Collections.tags = new Evernote.Collections.Tags();
     
-    Evernote.Views.renderNotebooks($notebooks);
+    Evernote.Views.renderSidebar($notebooks, $tags);
     
     new Evernote.Routers.Router({
       $notebooks: $notebooks,
       $notes: $notes,
-      $noteEditor: $noteEditor
+      $noteEditor: $noteEditor,
+      $tags: $tags
     });
     Backbone.history.start();
   }
