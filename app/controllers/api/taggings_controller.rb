@@ -27,6 +27,7 @@ class Api::TaggingsController < ApplicationController
           id: @tagging.id,
           tag_id: @tagging.tag_id,
           note_id: @tagging.note_id,
+          notebook_id: @tagging.note.notebook_id,
           name: @tag.name
         }
       }

@@ -7,8 +7,17 @@ Evernote.Views.TagsIndex = Backbone.View.extend({
   },
   
   render: function () {
+    var tags = _(this.collection.pluck("name")).uniq();
+    
+    var view = this;
+    tags = tags.map(function (tagName) {
+      return view.collection.findWhere({
+        name: tagName
+      });
+    });
+    
     var renderedContent = this.template({
-      tags: this.collection.models
+      tags: tags
     });
     
     this.$el.html(renderedContent);

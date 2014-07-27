@@ -2,7 +2,8 @@
 Evernote.Routers.Router = Backbone.Router.extend({
   routes: {
     "notebooks/:id": "notebookShow",
-    "notebooks/:id/notes/:id": "noteShow"
+    "notebooks/:id/notes/:id": "noteShow",
+    "tags/:id": "tagShow"
   },
   
   initialize: function (options) {
@@ -35,6 +36,32 @@ Evernote.Routers.Router = Backbone.Router.extend({
     
     this._swapViews("noteEditor", noteShowView);
     noteShowView.afterRender();
+  },
+  
+  tagShow: function (id) {
+    id = parseInt(id, 10);
+    var taggings = Evernote.Collections.taggings.where({
+      "tag_id": id
+    });
+    
+    var notes = _(taggings).map(function (tagging) {
+      var notebook = Evernote.Collections.notebooks.getOrFetch(
+        tagging.escape("notebook_id")
+      );
+      
+      return notebook.notes().getOrFetch(tagging.escape("note_id"));
+    });
+    
+    notes = _(notes).sortBy(function (note) {
+      return note.get("title");
+    });
+    
+    var tagShowView = new Evernote.Views.TagNotes({
+      notes: notes,
+      model: taggings[0]
+    });
+    
+    this._swapViews("notes", tagShowView);
   },
   
   _swapViews: function (area, view) {

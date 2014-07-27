@@ -2,7 +2,7 @@
 <ul>
   <% _(tags).each(function (tag) {%>
     <li>
-      <a href="#/tags/<%= tag.escape('id') %>">
+      <a href="#/tags/<%= tag.escape('tag_id') %>">
         <%= tag.escape("name") %>
       </a>
     </li>
