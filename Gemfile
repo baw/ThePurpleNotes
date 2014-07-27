@@ -14,6 +14,7 @@ gem 'epic-editor-rails'
 gem 'underscore-rails'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'rails_12factor'
