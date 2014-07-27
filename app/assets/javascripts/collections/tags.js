@@ -1,6 +1,8 @@
 /*global Evernote */
 Evernote.Collections.Tags = Backbone.Collection.extend({
-  comparator: "name",
+  comparator: function (tag) {
+    return tag.escape("name").toLowerCase();
+  },
   model: Evernote.Models.Tag,
   
   initialize: function (options) {
