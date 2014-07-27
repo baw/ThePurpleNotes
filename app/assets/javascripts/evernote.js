@@ -12,19 +12,19 @@ window.Evernote = {
       
       $notebooks.html(indexView.render().$el);
       
-      Evernote.Collections.tags.fetch();
-      
       var tagsIndexView = new Evernote.Views.TagsIndex({
-        collection: Evernote.Collections.tags
+        collection: Evernote.Collections.taggings
       });
       
       $tags.html(tagsIndexView.render().$el);
     }
   },
   Routers: {},
-  initialize: function($notebooks, $notes, $noteEditor, $tags) {
+  initialize: function($notebooks, $notes, $noteEditor, $tags, $tagData) {
     Evernote.Collections.notebooks = new Evernote.Collections.Notebooks();
-    Evernote.Collections.tags = new Evernote.Collections.Tags();
+    Evernote.Collections.taggings = new Evernote.Collections.Tags();
+    var tagsData = JSON.parse($tagData.html());
+    Evernote.Collections.taggings.set(tagsData);
     
     Evernote.Views.renderSidebar($notebooks, $tags);
     

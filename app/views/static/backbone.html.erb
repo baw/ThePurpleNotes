@@ -12,8 +12,19 @@
   </div>
 </div>
 
+<script type="javascript/data" id="taggings-data">
+<%= render(partial: "api/taggings/index.json.jbuilder",
+           locals: { taggings: @taggings }).html_safe %>
+</script>
+
 <script>
 $(function(){
-  Evernote.initialize($(".notebooks"), $(".notes"), $(".noteView"), $(".tags"));
+  Evernote.initialize(
+    $(".notebooks"),
+    $(".notes"),
+    $(".noteView"),
+    $(".tags"),
+    $("#taggings-data")
+  );
 });
 </script>

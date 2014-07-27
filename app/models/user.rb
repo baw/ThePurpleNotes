@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   
   has_many :notebooks
   has_many :notes, through: :notebooks, source: :notes
+  has_many :taggings, through: :notes, source: :taggings
   has_many :tags, through: :notes, source: :tags
   def User.find_by_credentials(username, password)
     user = User.find_by(username: username)

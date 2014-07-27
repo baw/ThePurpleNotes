@@ -6,6 +6,10 @@ Evernote.Views.TagsNew = Backbone.View.extend({
   tagName: "form",
   template: JST["tags/new"],
   
+  initialize: function (options) {
+    this.note = options.note;
+  },
+  
   render: function () {
     var renderContent = this.template();
     
@@ -18,8 +22,10 @@ Evernote.Views.TagsNew = Backbone.View.extend({
     event.preventDefault();
     var $tagName = $("#tagName");
     var tagName = $tagName.val();
-    this.collection.create({
-      name: tagName
+    
+    Evernote.Collections.taggings.create({
+      "name": tagName,
+      "note_id": this.note.id
     });
     
     $tagName.val("");
