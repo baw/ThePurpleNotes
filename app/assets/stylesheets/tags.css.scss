@@ -1,3 +1,7 @@
+.tagContainer {
+  margin-bottom: 6px;
+}
+
 .tag {
   background-color: #ccc;
   padding: 3px 6px;
@@ -11,4 +15,39 @@
 
 .tag:hover .tagDelete {
   display: inline-block;
+}
+
+.tags, .tagsNew .tagForm, .tagsNew {
+  display: inline-block;
+}
+
+.tagsNew .tagName {
+  border-radius: 9px;
+  background-color: #ccc;
+  border: none;
+  width: 20px;
+  text-align: center;
+  padding: 3px;
+  margin-left: -15px;
+  height: 22px;
+  -webkit-transition:width 0.5s;
+     -moz-transition:width 0.5s;
+       -o-transition:width 0.5s;
+          transition:width 0.5s;
+}
+
+.tagsNew .tagNameExpanded {
+  width: 50px;
+  text-align: left;
+  margin-left:0;
+}
+
+form.tagForm.fa.fa-plus::before {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none
 }
