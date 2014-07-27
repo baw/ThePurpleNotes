@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     resources :notebooks do
-      resources :notes do
-        resources :tags
-      end
+      resources :notes
     end
     
     resources :taggings
