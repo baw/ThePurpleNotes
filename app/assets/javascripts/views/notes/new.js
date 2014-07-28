@@ -12,8 +12,16 @@ Evernote.Views.NoteNew = Backbone.View.extend({
     var title = $noteTitle.val();
     $noteTitle.val("");
     
-    this.collection.create({
+    var notebook = this.collection.notebook;
+    var note = this.collection.create({
       "title": title
+    }, {
+      success: function () {
+        Backbone.history.navigate(
+          "notebooks/" + notebook.escape("id") + "/notes/" + note.escape("id"),
+          { trigger: true }
+        );
+      }
     });
   },
   
