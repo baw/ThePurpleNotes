@@ -15,7 +15,7 @@ class Note < ActiveRecord::Base
   
   belongs_to :notebook
   
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   
   has_many :tags, through: :taggings, source: :tag
 end
