@@ -16,13 +16,14 @@ Evernote.Views.TagsNew = Backbone.View.extend({
   newTagBlur: function (event) {
     var $target = $(event.target);
     $target.removeClass("tagNameExpanded");
+    $target.addClass("tagTextGoAway");
     $target.parent().addClass("fa fa-plus");
   },
   
   newTagFocus: function (event) {
     var $target = $(event.target);
-    $target.val("");
     $target.addClass("tagNameExpanded");
+    $target.removeClass("tagTextGoAway");
     $target.parent().removeClass("fa fa-plus");
   },
   
