@@ -8,7 +8,8 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   
   afterRender: function () {
     Evernote.editor = new EpicEditor({
-      clientSideStorage: false
+      clientSideStorage: false,
+      focusOnLoad: true
     });
     
     Evernote.editor.load();
