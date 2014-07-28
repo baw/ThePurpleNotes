@@ -13,6 +13,8 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   },
   
   initialize: function (options) {
+    this.notesList = ".notes-list";
+    
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.notes(), "sync change:title add remove", this.renderNotes);
   },
