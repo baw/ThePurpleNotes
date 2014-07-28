@@ -4,7 +4,9 @@ window.Evernote = {
   Collections: {},
   Views: {
     renderSidebar: function ($notebooks, $tags) {
-      Evernote.Collections.notebooks.fetch();
+      Evernote.Collections.notebooks.fetch({
+        reset: true
+      });
       
       var indexView = new Evernote.Views.NotebooksIndex({
         collection: Evernote.Collections.notebooks
