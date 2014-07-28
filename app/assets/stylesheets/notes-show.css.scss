@@ -9,3 +9,12 @@
 .noteTitle, #noteShowTitle {
   display: inline-block;
 }
+
+.notes-list .btn-group, .note-item {
+  width: 100%;
+}
+
+.note-item {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}

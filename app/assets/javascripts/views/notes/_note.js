@@ -1,10 +1,8 @@
 /*global Evernote, JST */
 Evernote.Views.NoteView = Backbone.View.extend({
-  className: "list-group-item",
   events: {
     "click .note-item": "makeActive"
   },
-  tagName: "li",
   template: JST["notes/_note"],
   
   initialize: function (options) {

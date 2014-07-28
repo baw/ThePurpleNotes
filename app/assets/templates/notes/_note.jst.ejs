@@ -1,3 +1,5 @@
-<a class="note-item <%= makeActive %>" href="#/notebooks/<%= notebook.escape('id') %>/notes/<%= note.escape('id') %>">
-  <%= note.escape("title") %>
-</a>
+<div class="btn-group">
+  <a class="note-item btn btn-default <%= makeActive %>" href="#/notebooks/<%= notebook.escape('id') %>/notes/<%= note.escape('id') %>">
+    <%= note.escape("title") %>
+  </a>
+</div>
