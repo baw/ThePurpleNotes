@@ -11,7 +11,7 @@ Evernote.Views.NoteNew = Backbone.View.extend({
     var $noteTitle = this.$("#noteTitle");
     var title = $noteTitle.val();
     $noteTitle.val("");
-    console.log(title);
+    
     this.collection.create({
       "title": title
     });
