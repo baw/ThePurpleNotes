@@ -51,3 +51,15 @@ form.tagForm.fa.fa-plus::before {
   -webkit-user-select: none;
   user-select: none
 }
+
+.list-tags {
+  padding-left: 14px;
+}
+
+.list-tag {
+  display: block;
+}
+
+.list-tag a {
+  padding-left: 3px;
+}

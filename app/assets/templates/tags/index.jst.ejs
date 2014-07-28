@@ -1,7 +1,7 @@
-<h1>Tags</h1>
-<ul>
+<h1><i class="fa fa-tags"></i> Tags</h1>
+<ul class="list-tags">
   <% _(tags).each(function (tag) {%>
-    <li>
+    <li class="list-tag fa fa-tag">
       <a href="#/tags/<%= tag.escape('tag_id') %>">
         <%= tag.escape("name") %>
       </a>
