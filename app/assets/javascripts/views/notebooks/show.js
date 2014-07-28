@@ -5,9 +5,11 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   addNote: function (note) {
     var renderedNoteView = new Evernote.Views.NoteView({
       model: note,
+      notes: this.notes,
       notebook: this.model
     });
     
+    this.notes.push(renderedNoteView);
     
     this.addSubview(this.notesList, renderedNoteView);
   },
@@ -33,6 +35,7 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   },
   
   renderNotes: function () {
+    this.notes = [];
     $(this.notesList).html("");
     this.removeSubviews(this.notesList);
     
