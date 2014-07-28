@@ -2,22 +2,39 @@
 Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   template: JST["notebooks/show"],
   
+  addNote: function (note) {
+    var renderedNoteView = new Evernote.Views.NoteView({
+      model: note,
+      notebook: this.model
+    });
+    
+    
+    this.addSubview(this.notesList, renderedNoteView);
+  },
+  
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.notes(), "sync change:title add remove", this.render);
+    this.listenTo(this.model.notes(), "sync change:title add remove", this.renderNotes);
   },
   
   render: function () {
     var renderContent = this.template({
-      notes: this.model.notes().models,
       notebook: this.model
     });
     
     this.$el.html(renderContent);
     
+    this.renderNotes();
     this.renderNoteNew();
     
     return this;
+  },
+  
+  renderNotes: function () {
+    $(this.notesList).html("");
+    this.removeSubviews(this.notesList);
+    
+    _(this.model.notes().models).each(this.addNote.bind(this));
   },
   
   renderNoteNew: function () {
