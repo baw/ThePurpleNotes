@@ -34,7 +34,7 @@ class Api::NotebooksController < ApplicationController
     @notebook = Notebook.find(params[:id])
     @notebook.destroy
     
-    render @notebook
+    render json: @notebook
   end
   
   private
