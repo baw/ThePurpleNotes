@@ -6,8 +6,9 @@ Evernote.Views.NoteView = Backbone.View.extend({
   template: JST["notes/_note"],
   
   initialize: function (options) {
-    this.notebook = options.notebook;
     this.notes = options.notes;
+    
+    this.listenTo(this.model, "sync change:title", this.render);
   },
   
   makeActive: function () {
@@ -27,8 +28,7 @@ Evernote.Views.NoteView = Backbone.View.extend({
   render: function () {
     var renderedContent = this.template({
       makeActive: this.model.get("active") ? "active" : "",
-      note: this.model,
-      notebook: this.notebook
+      note: this.model
     });
     
     this.$el.html(renderedContent);

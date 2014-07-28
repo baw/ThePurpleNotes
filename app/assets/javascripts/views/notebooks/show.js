@@ -5,8 +5,7 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   addNote: function (note) {
     var renderedNoteView = new Evernote.Views.NoteView({
       model: note,
-      notes: this.notes,
-      notebook: this.model
+      notes: this.notes
     });
     
     this.notes.push(renderedNoteView);
