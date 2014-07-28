@@ -1,12 +1,25 @@
 /*global Evernote, JST */
 Evernote.Views.NotebookView = Backbone.View.extend({
   events: {
-    "click .removeNotebook": "removeNotebook"
+    "click .removeNotebook": "removeNotebook",
+    "click .notebook-item": "makeActive"
   },
   template: JST["notebooks/_notebook"],
   
-  initialize: function () {
+  initialize: function (options) {
+    this.notebookViews = options.notebookViews;
+    
     this.listenTo(this.model, "sync change:title", this.render);
+  },
+  
+  makeActive: function (event) {
+    _(this.notebookViews).each(function (notebookView) {
+      notebookView.model.set("active", false);
+      notebookView.render();
+    });
+    
+    this.model.set("active", true);
+    this.render();
   },
   
   removeNotebook: function () {
@@ -14,7 +27,6 @@ Evernote.Views.NotebookView = Backbone.View.extend({
     this.model.destroy({
       success: function () {
         var note;
-        
         while (note = notes.first()) {
           var taggings = Evernote.Collections.taggings.where({
             "note_id": parseInt(note.escape("id"), 10)
@@ -35,7 +47,8 @@ Evernote.Views.NotebookView = Backbone.View.extend({
   
   render: function () {
     var renderedContent = this.template({
-      notebook: this.model
+      notebook: this.model,
+      makeActive: this.model.get("active") ? "active" : ""
     });
     
     this.$el.html(renderedContent);

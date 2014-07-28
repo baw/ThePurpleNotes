@@ -1,5 +1,5 @@
 <div class="btn-group notebook-group">
-  <a class="btn btn-default notebook-item" href="#/notebooks/<%= notebook.escape('id') %>">
+  <a class="btn btn-default notebook-item <%= makeActive %>" href="#/notebooks/<%= notebook.escape('id') %>">
     <%= notebook.escape("title") %>
   </a>
   <a class="btn btn-default notebook-item-toggle dropdown-toggle" data-toggle="dropdown">
