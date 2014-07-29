@@ -1,12 +1,26 @@
 <div class="btn-group notebook-group">
-  <a class="btn btn-default notebook-item <%= makeActive %>" href="#/notebooks/<%= notebook.escape('id') %>">
-    <%= notebook.escape("title") %>
-  </a>
+  <% if (editable) { %>
+    <form class="editNotebookTitleForm">
+      <input class="editNotebookTitle"
+             type="text"
+             name="title"
+             value="<%= notebook.escape('title') %>">
+    </form>
+  <% } else { %>
+    <a class="btn btn-default notebook-item <%= makeActive %>" href="#/notebooks/<%= notebook.escape('id') %>">
+      <%= notebook.escape("title") %>
+    </a>
+  <% } %>
   <a class="btn btn-default notebook-item-toggle dropdown-toggle" data-toggle="dropdown">
     <i class="fa fa-caret-square-o-down"></i>
     <span class="sr-only">Toggle Dropdown</span>
   </a>
   <ul class="dropdown-menu dropdown-menu-right" role="menu">
+    <li>
+      <a class="editNotebookTitleButton" href="#">
+        Edit Notebook Title
+      </a>
+    </li>
     <li>
       <a class="removeNotebook" href="#">
         Remove Notebook

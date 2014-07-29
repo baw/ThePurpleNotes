@@ -14,7 +14,7 @@ Evernote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   },
   
   initialize: function () {
-    this.listenTo(this.collection, "sync remove add", this.renderNotebooks);
+    this.listenTo(this.collection, "sync change:title remove add", this.renderNotebooks);
     
     this.notebookSelector = ".notebooks-list";
   },

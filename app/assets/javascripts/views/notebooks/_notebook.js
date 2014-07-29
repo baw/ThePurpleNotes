@@ -1,10 +1,30 @@
 /*global Evernote, JST */
 Evernote.Views.NotebookView = Backbone.View.extend({
   events: {
+    "click .editNotebookTitleButton": "editNotebookTitle",
+    "submit .editNotebookTitleForm": "editNotebookTitleFormSubmit",
     "click .removeNotebook": "removeNotebook",
     "click .notebook-item": "makeActive"
   },
   template: JST["notebooks/_notebook"],
+  
+  editNotebookTitle: function () {
+    this.edit = true;
+    this.render();
+  },
+  
+  editNotebookTitleFormSubmit: function (event) {
+    event.preventDefault();
+    var $input = this.$(".editNotebookTitle");
+    var title = $input.val();
+    
+    this.model.save({
+      "title": title
+    });
+    
+    this.model.collection.sort();
+    this.edit = false;
+  },
   
   initialize: function (options) {
     this.notebookViews = options.notebookViews;
@@ -47,6 +67,7 @@ Evernote.Views.NotebookView = Backbone.View.extend({
   
   render: function () {
     var renderedContent = this.template({
+      editable: this.edit,
       notebook: this.model,
       makeActive: this.model.get("active") ? "active" : ""
     });
