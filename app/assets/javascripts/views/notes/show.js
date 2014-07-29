@@ -2,8 +2,7 @@
 Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   events: {
     "click .save":"saveContent",
-    "click .delete": "deleteContent",
-    "click .share": "shareContent"
+    "click .delete": "deleteContent"
   },
   template: JST["notes/show"],
   
@@ -35,6 +34,8 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   
   initialize: function () {
     this.listenTo(Evernote.Collections.taggings, "sync add remove", this.renderTags);
+    this.listenTo(this.model, "sync", this.renderShare);
+    this.shareURLContainer = ".shareUrlContainer";
   },
   
   remove: function () {
@@ -52,8 +53,19 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
     this.renderTitle();
     this.renderTags();
     this.renderTagsNew();
+    this.renderShare();
     
     return this;
+  },
+  
+  renderShare: function () {
+    this.$(this.shareURLContainer).html("");
+    
+    var shareView = new Evernote.Views.Sharing({
+      model: this.model
+    });
+    
+    this.addSubview(this.shareURLContainer, shareView);
   },
   
   renderTags: function () {
@@ -88,21 +100,5 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   saveContent: function (event) {
     var content = this.editor.exportFile();
     this.model.save({ "content": content });
-  },
-  
-  shareContent: function (event) {
-    console.log("shareContent");
-    var sharing = new Evernote.Models.Sharing({
-      "note_id": this.model.escape("id")
-    });
-    sharing.save({}, {
-      success: function () {
-        $(event.target).remove();
-        var $shareUrl = $("#shareUrl");
-        var url =  "/sharings/" + sharing.get("url");
-        $shareUrl.prop("href", url);
-        $shareUrl.text(url);
-      }
-    });
   }
 });

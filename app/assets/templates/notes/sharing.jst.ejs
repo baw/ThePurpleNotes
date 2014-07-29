@@ -1,0 +1,7 @@
+<% if (shareURL) { %>
+  Share URL: <a id="shareUrl" href="/sharings/<%= shareURL %>" target="_blank">
+    /sharings/<%= shareURL %>
+  </a>
+<% } else { %>
+  <button class="share btn btn-default">Create Share Url</button>
+<% } %>
