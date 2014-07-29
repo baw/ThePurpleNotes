@@ -2,7 +2,7 @@ class Api::SharingsController < ApplicationController
   def show
     @sharing = Sharing.find_by(url: params[:id])
     
-    if @sharing
+    if @sharing && @sharing.active
       @markdown = @sharing.note.content
       render :show
     else
@@ -12,6 +12,15 @@ class Api::SharingsController < ApplicationController
   end
   
   def create
+    @sharing = Sharing.find_by(note_id: params[:note_id])
+    
+    if @sharing
+      @sharing.update_atrributes(active: true) unless @sharing.active
+      
+      render json: @sharing
+      return
+    end
+    
     @sharing = Sharing.new()
     @sharing.note_id = params[:note_id]
     
@@ -32,7 +41,8 @@ class Api::SharingsController < ApplicationController
     @sharing = Sharing.find(params[:id])
     
     if @sharing.note.user == current_user
-      @sharing.destroy
+      @sharing.active = false
+      @sharing.save!
       render json: @sharing
     else
       render json: "unathorized user", status: 401
