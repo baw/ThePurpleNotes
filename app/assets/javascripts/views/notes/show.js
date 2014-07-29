@@ -2,7 +2,8 @@
 Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   events: {
     "click .save":"saveContent",
-    "click .delete": "deleteContent"
+    "click .delete": "deleteContent",
+    "click .share": "shareContent"
   },
   template: JST["notes/show"],
   
@@ -87,5 +88,21 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   saveContent: function (event) {
     var content = Evernote.editor.exportFile();
     this.model.save({ "content": content });
+  },
+  
+  shareContent: function (event) {
+    console.log("shareContent");
+    var sharing = new Evernote.Models.Sharing({
+      "note_id": this.model.escape("id")
+    });
+    sharing.save({}, {
+      success: function () {
+        $(event.target).remove();
+        var $shareUrl = $("#shareUrl");
+        var url =  "/sharings/" + sharing.get("url");
+        $shareUrl.prop("href", url);
+        $shareUrl.text(url);
+      }
+    });
   }
 });
