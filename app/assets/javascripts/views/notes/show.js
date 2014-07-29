@@ -8,15 +8,15 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   template: JST["notes/show"],
   
   afterRender: function () {
-    Evernote.editor = new EpicEditor({
+    this.editor = new EpicEditor({
       clientSideStorage: false,
       focusOnLoad: true
     });
     
-    Evernote.editor.load();
-    Evernote.editor.importFile(this.model.escape("title"),
+    this.editor.load();
+    this.editor.importFile(this.model.escape("title"),
                                this.model.escape("content"));
-    Evernote.editor.on("autosave", this.autoSave.bind(this));
+    this.editor.on("autosave", this.autoSave.bind(this));
   },
   
   autoSave: function () {
@@ -40,7 +40,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   remove: function () {
     this.model && this.saveContent();
     Backbone.CompositeView.prototype.remove.call(this);
-    Evernote.editor.removeListener("autosave");
+    this.editor.removeListener("autosave");
   },
   
   render: function () {
@@ -86,7 +86,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   saveContent: function (event) {
-    var content = Evernote.editor.exportFile();
+    var content = this.editor.exportFile();
     this.model.save({ "content": content });
   },
   
