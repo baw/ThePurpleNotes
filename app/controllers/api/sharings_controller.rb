@@ -1,4 +1,4 @@
-class SharingsController < ApplicationController
+class Api::SharingsController < ApplicationController
   def show
     @sharing = Sharing.find_by(url: params[:id])
     
