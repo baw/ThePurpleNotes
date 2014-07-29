@@ -9,8 +9,13 @@ Evernote.Views.NotebookView = Backbone.View.extend({
   template: JST["notebooks/_notebook"],
   
   editNotebookTitle: function () {
-    this.edit = true;
-    this.render();
+    if (this.edit) {
+      this.edit = false;
+      this.render();
+    } else {
+      this.edit = true;
+      this.render();
+    }
   },
   
   editNotebookTitleFormSubmit: function (event) {
