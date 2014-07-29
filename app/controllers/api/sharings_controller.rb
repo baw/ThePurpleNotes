@@ -15,7 +15,7 @@ class Api::SharingsController < ApplicationController
     @sharing = Sharing.find_by(note_id: params[:note_id])
     
     if @sharing
-      @sharing.update_atrributes(active: true) unless @sharing.active
+      @sharing.update_attributes(active: true) unless @sharing.active
       
       render json: @sharing
       return
