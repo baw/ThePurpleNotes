@@ -14,6 +14,7 @@ class Note < ActiveRecord::Base
   validates :notebook, presence: true
   
   belongs_to :notebook
+  delegate :user, to: :notebook
   
   has_many :taggings, dependent: :destroy
   
