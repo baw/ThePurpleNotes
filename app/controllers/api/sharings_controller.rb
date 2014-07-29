@@ -37,11 +37,11 @@ class Api::SharingsController < ApplicationController
     end
   end
   
-  def destroy
+  def update
     @sharing = Sharing.find(params[:id])
     
     if @sharing.note.user == current_user
-      @sharing.active = false
+      @sharing.active = params[:active]
       @sharing.save!
       render json: @sharing
     else

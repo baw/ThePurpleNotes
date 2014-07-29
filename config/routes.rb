@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :notes
     end
     
-    resources :sharings, only: [:create, :delete]
+    resources :sharings, only: [:create, :update]
     resources :taggings
   end
 end
