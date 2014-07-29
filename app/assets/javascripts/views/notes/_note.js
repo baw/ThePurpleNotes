@@ -20,11 +20,6 @@ Evernote.Views.NoteView = Backbone.View.extend({
     this.render();
   },
   
-  remove: function () {
-    this.model.set("active", false);
-    Backbone.View.prototype.remove.call(this);
-  },
-  
   render: function () {
     var renderedContent = this.template({
       makeActive: this.model.get("active") ? "active" : "",
