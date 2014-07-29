@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   root to: "static#root"
   get "/notes", to: "static#backbone", as: "backbone"
-  resources :sharings, only: :show
+  resources :sharings, only: :show, controller: "api/sharings"
   
   namespace :api, defaults: { format: :json } do
     resources :notebooks do
