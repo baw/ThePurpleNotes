@@ -1,7 +1,10 @@
 /*global Evernote */
 Evernote.Collections.Notes = Backbone.Collection.extend({
-  comparator: "title",
   model: Evernote.Models.Note,
+  
+  comparator: function (note) {
+    return note.escape("title").toLowerCase();
+  },
   
   initialize: function (options) {
     this.notebook = options.notebook;
