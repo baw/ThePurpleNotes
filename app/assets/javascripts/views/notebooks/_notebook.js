@@ -1,14 +1,15 @@
 /*global Evernote, JST */
 Evernote.Views.NotebookView = Backbone.View.extend({
   events: {
-    "click .editNotebookTitleButton": "editNotebookTitle",
+    "click .editNotebookTitleButton": "editNotebookTitleButton",
     "submit .editNotebookTitleForm": "editNotebookTitleFormSubmit",
     "click .removeNotebook": "removeNotebook",
     "click .notebook-item": "makeActive"
   },
   template: JST["notebooks/_notebook"],
   
-  editNotebookTitle: function () {
+  editNotebookTitleButton: function (event) {
+    event.preventDefault();
     var $input = this.$(".editNotebookTitle");
     
     if (this.edit) {
