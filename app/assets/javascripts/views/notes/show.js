@@ -60,6 +60,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   
   renderShare: function () {
     this.$(this.shareURLContainer).html("");
+    this.removeSubviews(this.shareURLContainer);
     
     var shareView = new Evernote.Views.Sharing({
       model: this.model
