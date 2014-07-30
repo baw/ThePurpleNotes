@@ -12,17 +12,25 @@ Evernote.Views.NoteNew = Backbone.View.extend({
     var title = $noteTitle.val();
     $noteTitle.val("");
     
+    var view = this;
     var notebook = this.collection.notebook;
     var note = this.collection.create({
       "title": title
     }, {
       success: function () {
+        view.clearActiveNote();
+        note.set("active", true);
+        
         Backbone.history.navigate(
           "notebooks/" + notebook.escape("id") + "/notes/" + note.escape("id"),
           { trigger: true }
         );
       }
     });
+  },
+  
+  initialize: function (options) {
+    this.clearActiveNote = options.clearActiveNote;
   },
   
   render: function () {
