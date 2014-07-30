@@ -4,13 +4,19 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   
   addNote: function (note) {
     var renderedNoteView = new Evernote.Views.NoteView({
-      model: note,
-      notes: this.notes
+      clearActiveNote: this.clearActiveNote.bind(this),
+      model: note
     });
     
     this.notes.push(renderedNoteView);
     
     this.addSubview(this.notesList, renderedNoteView);
+  },
+  
+  clearActiveNote: function () {
+    _(this.notes).each(function (note) {
+      note.model.set("active", false);
+    });
   },
   
   initialize: function (options) {
@@ -21,9 +27,7 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   },
   
   remove: function () {
-    _(this.notes).each(function (note) {
-      note.model.set("active", false);
-    });
+    this.clearActiveNote();
   },
   
   render: function () {
@@ -49,6 +53,7 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   
   renderNoteNew: function () {
     var renderedNoteNewView = new Evernote.Views.NoteNew({
+      clearActiveNote: this.clearActiveNote.bind(this),
       collection: this.model.notes()
     });
     
