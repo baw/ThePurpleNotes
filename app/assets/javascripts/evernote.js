@@ -22,11 +22,13 @@ window.Evernote = {
     }
   },
   Routers: {},
-  initialize: function($notebooks, $notes, $noteEditor, $tags, $tagData) {
+  initialize: function($notebooks, $notes, $noteEditor, $tags, $bootstrappedData) {
     Evernote.Collections.notebooks = new Evernote.Collections.Notebooks();
     Evernote.Collections.taggings = new Evernote.Collections.Tags();
-    var tagsData = JSON.parse($tagData.html());
-    Evernote.Collections.taggings.set(tagsData);
+    
+    var bootstrappedData = JSON.parse($bootstrappedData.html());
+    Evernote.Collections.notebooks.reset(bootstrappedData.notebooks, { parse: true });
+    Evernote.Collections.taggings.reset(bootstrappedData.taggings, { parse: true });
     
     Evernote.Views.renderSidebar($notebooks, $tags);
     

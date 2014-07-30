@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<script type="javascript/data" id="taggings-data">
+<script type="javascript/data" id="bootstrapped-data">
 <%= render(partial: "api/bootstrapping.json.jbuilder",
            locals: { notebooks: @notebooks, taggings: @taggings }).html_safe %>
 </script>
@@ -24,7 +24,7 @@ $(function(){
     $(".notes"),
     $(".noteView"),
     $(".tags"),
-    $("#taggings-data")
+    $("#bootstrapped-data")
   );
 });
 </script>
