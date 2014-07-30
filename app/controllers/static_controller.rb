@@ -7,6 +7,8 @@ class StaticController < ApplicationController
   def backbone
     @taggings = current_user.taggings.includes :tag
 
+    @notebooks = current_user.notebooks.includes :notes
+    
     render :backbone
   end
 end

@@ -13,8 +13,8 @@
 </div>
 
 <script type="javascript/data" id="taggings-data">
-<%= render(partial: "api/taggings/index.json.jbuilder",
-           locals: { taggings: @taggings }).html_safe %>
+<%= render(partial: "api/bootstrapping.json.jbuilder",
+           locals: { notebooks: @notebooks, taggings: @taggings }).html_safe %>
 </script>
 
 <script>
