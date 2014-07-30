@@ -5,8 +5,7 @@ class StaticController < ApplicationController
   end
   
   def backbone
-    @taggings = current_user.taggings.includes :tag
-
+    @taggings = current_user.taggings.includes [:tag, :note]
     @notebooks = current_user.notebooks.includes :notes
     
     render :backbone
