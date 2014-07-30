@@ -5,7 +5,7 @@ Evernote.Views.TagNotes = Backbone.CompositeView.extend({
   addNote: function (note) {
     var noteView = new Evernote.Views.NoteView({
       model: note,
-      notes: this.notesView
+      clearActiveNote: this.clearActiveNote
     });
     
     this.notesView.push(noteView);
@@ -23,6 +23,12 @@ Evernote.Views.TagNotes = Backbone.CompositeView.extend({
     );
   },
   
+  remove: function () {
+    debugger;
+    this.clearActiveNote();
+    Backbone.CompositeView.prototype.remove.call(this);
+  },
+  
   render: function () {
     var renderContent = this.template({
       tagging: this.model
@@ -37,6 +43,12 @@ Evernote.Views.TagNotes = Backbone.CompositeView.extend({
   
   renderNotes: function () {
     this.notesView = [];
+    
+    //TODO: try to figure out away to not use the prototype of another class
+    this.clearActiveNote = Evernote.Views.NotebookShow.prototype.clearActiveNote.bind({
+      notes: this.notesView
+    }),
+    
     this.$(this.noteListSelector).html("");
     this.removeSubviews(this.noteListSelector);
     
