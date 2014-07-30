@@ -28,6 +28,7 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   
   remove: function () {
     this.clearActiveNote();
+    Backbone.CompositeView.prototype.remove.call(this);
   },
   
   render: function () {
