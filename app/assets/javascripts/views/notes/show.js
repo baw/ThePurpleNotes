@@ -14,7 +14,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
     
     this.editor.load();
     this.editor.importFile(this.model.escape("title"),
-                               this.model.escape("content"));
+                           this.model.escape("content"));
     this.editor.on("autosave", this.autoSave.bind(this));
   },
   

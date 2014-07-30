@@ -38,7 +38,7 @@ Evernote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   
   renderNotebooks: function () {
     this.notebookViews = [];
-    $(this.notebookSelector).html("");
+    this.$(this.notebookSelector).html("");
     this.removeSubviews(this.notebookSelector);
     
     _(this.collection.models).each(this.addNotebook.bind(this));
