@@ -29,6 +29,10 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   
   deleteContent: function () {
     this.model.destroy();
+    
+    Backbone.history.navigate("/notebooks/" + this.model.get("notebook_id"), {
+      trigger: true
+    });
     this.model = null;
   },
   
