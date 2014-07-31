@@ -2,7 +2,11 @@
   Share URL: <a id="shareUrl" href="/sharings/<%= shareURL %>" target="_blank">
     /sharings/<%= shareURL %>
   </a>
-  <button class="unShare btn btn-danger">Make Private</button>
+  <button class="unShare btn btn-danger">
+    <i class="fa fa-unlink"></i> Make Private
+  </button>
 <% } else { %>
-  <button class="share btn btn-default">Create Share Url</button>
+  <button class="share btn btn-default">
+    <i class="fa fa-link"></i> Create Share Url
+  </button>
 <% } %>
