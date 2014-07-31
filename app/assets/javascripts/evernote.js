@@ -20,6 +20,9 @@ window.Evernote = {
   Routers: {},
   initialize: function($notebooks, $notes, $noteEditor, $tags, $bootstrappedData) {
     Evernote.Collections.notebooks = new Evernote.Collections.Notebooks();
+    Evernote.Collections.notes = new Evernote.Collections.Notes({
+      notebook: undefined
+    });
     Evernote.Collections.taggings = new Evernote.Collections.Tags();
     
     var bootstrappedData = JSON.parse($bootstrappedData.html());
