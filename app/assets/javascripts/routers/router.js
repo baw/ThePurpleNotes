@@ -29,6 +29,10 @@ Evernote.Routers.Router = Backbone.Router.extend({
       
       this._swapViews("noteEditor", noteShowView);
       noteShowView.afterRender();
+    } else {
+      this._swapViews("noteEditor", null, {
+        clear: true
+      });
     }
     
     this._swapViews("notes", notebookShow);
@@ -73,10 +77,15 @@ Evernote.Routers.Router = Backbone.Router.extend({
     this._swapViews("notes", tagShowView);
   },
   
-  _swapViews: function (area, view) {
+  _swapViews: function (area, view, options) {
     this._currentViews = this._currentViews || {};
     this._currentViews[area] && this._currentViews[area].remove();
     this._currentViews[area] = view;
-    this.$selectors[area].html(view.render().$el);
+    
+    if (options && options.clear) {
+      this.$selectors[area].html("");
+    } else {
+      this.$selectors[area].html(view.render().$el);
+    }
   }
 });
