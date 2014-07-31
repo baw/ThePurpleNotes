@@ -6,7 +6,7 @@ Evernote.Collections.Notes = Backbone.Collection.extend({
     return note.escape("title").toLowerCase();
   },
   
-  initialize: function (options) {
+  initialize: function (models, options) {
     this.notebook = options.notebook;
   },
   

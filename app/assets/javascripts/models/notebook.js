@@ -5,7 +5,7 @@ Evernote.Models.Notebook = Backbone.Model.extend({
   
   notes: function () {
     if (this._notes === undefined) {
-      this._notes = new Evernote.Collections.Notes({
+      this._notes = new Evernote.Collections.Notes([], {
         notebook: this
       });
     }
