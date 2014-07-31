@@ -3,7 +3,7 @@ Evernote.Views.SearchIndex = Backbone.CompositeView.extend({
   template: JST["search/index"],
   
   initialize: function (options) {
-    this.notesSelector = ".notes";
+    this.notesSelector = ".notes-list";
     this.notes = options.notes;
   },
   
