@@ -29,6 +29,8 @@ group :development do
   gem 'quiet_assets'
   gem 'annotate'
   
+  gem 'lol_dba'
+  
   gem 'rspec-rails'
   
   gem 'spring'
