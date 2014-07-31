@@ -40,6 +40,6 @@ window.Evernote = {
     });
     Backbone.history.start();
     
-    Evernote.Searches.search($search);
+    Evernote.Searches.search($search, $notes);
   }
 };

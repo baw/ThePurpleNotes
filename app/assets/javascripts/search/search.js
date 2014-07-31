@@ -1,5 +1,5 @@
 /*global Evernote*/
-Evernote.Searches.search = function ($search) {
+Evernote.Searches.search = function ($search, $div) {
   var count = function (searchString, stringToSearch) {
     searchString = searchString.toLowerCase();
     stringToSearch = stringToSearch.toLowerCase();
@@ -52,5 +52,7 @@ Evernote.Searches.search = function ($search) {
         return 0;
       }
     });
+    
+    Evernote.Searches.displayResults(results.slice(0, 10), $div);
   });
 };
