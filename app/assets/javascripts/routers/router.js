@@ -21,6 +21,16 @@ Evernote.Routers.Router = Backbone.Router.extend({
       model: notebook
     });
     
+    var note = notebook.notes().first();
+    if (note) {
+      var noteShowView = new Evernote.Views.NoteShow({
+        model: note
+      });
+      
+      this._swapViews("noteEditor", noteShowView);
+      noteShowView.afterRender();
+    }
+    
     this._swapViews("notes", notebookShow);
   },
   
@@ -30,8 +40,7 @@ Evernote.Routers.Router = Backbone.Router.extend({
     var note = notebook.notes().getOrFetch(noteId);
     
     var noteShowView = new Evernote.Views.NoteShow({
-      model: note,
-      notebookId: notebookId
+      model: note
     });
     
     this._swapViews("noteEditor", noteShowView);

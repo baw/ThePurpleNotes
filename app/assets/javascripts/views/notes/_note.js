@@ -8,7 +8,7 @@ Evernote.Views.NoteView = Backbone.View.extend({
   initialize: function (options) {
     this.clearActiveNote = options.clearActiveNote;
     
-    this.listenTo(this.model, "sync change:title", this.render);
+    this.listenTo(this.model, "sync change:title change:active", this.render);
   },
   
   makeActive: function () {

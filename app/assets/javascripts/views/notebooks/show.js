@@ -50,6 +50,8 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
     this.removeSubviews(this.notesList);
     
     _(this.model.notes().models).each(this.addNote.bind(this));
+    
+    if (this.notes[0]) this.notes[0].makeActive();
   },
   
   renderNoteNew: function () {
