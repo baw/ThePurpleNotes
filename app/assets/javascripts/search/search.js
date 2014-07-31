@@ -16,43 +16,46 @@ Evernote.Searches.search = function ($search, $div) {
     return countNum;
   };
   
+  var sortByCount = function (firstNote, secondNote) {
+    if (firstNote.count < secondNote.count) {
+      return -1;
+    } else if (firstNote.count > secondNote.count) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+  
   $search.on("keyup", function () {
     var searchString = $search.val();
     var results = [];
     
     if (searchString === "") return [];
-    // console.log(searchString);
-    _(Evernote.Collections.notes.models).each(function (note) {
-      var num = 0;
-      // if (note.id === 2) debugger;
-      var title = note.get("title");
+    _(Evernote.Collections.notebooks.models).each(function (notebooks) {
+      _(notebooks.notes().models).each(function (note) {
+        var num = 0;
+        
+        var title = note.get("title");
+        
+        if (title) {
+          num += count(searchString, title);
+        }
+        
+        var content = note.get("content");
+        if (content) {
+          num += count(searchString, content);
+        }
+        if (num > 0) {
+          results.push({
+            count: num,
+            note: note
+          });
+        }
+      });
       
-      if (title) {
-        num += count(searchString, title);
-      }
+      results.sort(sortByCount);
       
-      var content = note.get("content");
-      if (content) {
-        num += count(searchString, content);
-      }
-      if (num > 0) {
-        results.push({
-          count: num,
-          note: note
-        });
-      }
+      Evernote.Searches.displayResults(results.slice(0, 10), $div);
     });
-    
-    results.sort(function (firstNote, secondNote) {
-      if (firstNote.count < secondNote.count) {
-        return -1;
-      } else if (firstNote.count > secondNote.count) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-    
-    Evernote.Searches.displayResults(results.slice(0, 10), $div);
   });
 };
