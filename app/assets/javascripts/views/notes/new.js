@@ -21,8 +21,6 @@ Evernote.Views.NoteNew = Backbone.View.extend({
         view.clearActiveNote();
         note.set("active", true);
         
-        Evernote.Collections.notes.add(note);
-        
         Backbone.history.navigate(
           "notebooks/" + notebook.escape("id") + "/notes/" + note.escape("id"),
           { trigger: true }
