@@ -18,7 +18,8 @@ window.Evernote = {
     }
   },
   Routers: {},
-  initialize: function($notebooks, $notes, $noteEditor, $tags, $bootstrappedData) {
+  Searches: {},
+  initialize: function($notebooks, $notes, $noteEditor, $tags, $bootstrappedData, $search) {
     Evernote.Collections.notebooks = new Evernote.Collections.Notebooks();
     Evernote.Collections.notes = new Evernote.Collections.Notes({
       notebook: undefined
@@ -38,5 +39,7 @@ window.Evernote = {
       $tags: $tags
     });
     Backbone.history.start();
+    
+    Evernote.Searches.search($search);
   }
 };

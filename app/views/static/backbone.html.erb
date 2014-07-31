@@ -1,6 +1,13 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        <label>Search
+          <input type="text" id="search">
+        </label>
+      </div>
+    </div>
+    <div class="row">
       <div class="leftSidebar col-xs-3">
         <div class="notebooks"></div>
         <div class="tags"></div>
@@ -24,7 +31,8 @@ $(function(){
     $(".notes"),
     $(".noteView"),
     $(".tags"),
-    $("#bootstrapped-data")
+    $("#bootstrapped-data"),
+    $("#search")
   );
 });
 </script>
