@@ -103,6 +103,8 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   saveContent: function (event) {
+    this.timeout && clearTimeout(this.timeout);
+    
     var content = this.editor.exportFile();
     this.model.save({ "content": content });
   }
