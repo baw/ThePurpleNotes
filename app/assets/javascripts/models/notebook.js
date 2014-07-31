@@ -3,7 +3,7 @@ Evernote.Models.Notebook = Backbone.Model.extend({
   urlRoot: "api/notebooks",
   
   parse:  function (jsonResponse) {
-    if (jsonResponse.notes && jsonResponse.notes.length > 0) {
+    if (jsonResponse.notes) {
       this.notes().set(jsonResponse.notes, {
         parse: true
       });
