@@ -30,6 +30,7 @@ group :development do
   gem 'annotate'
   
   gem 'lol_dba'
+  gem "bullet"
   
   gem 'rspec-rails'
   
