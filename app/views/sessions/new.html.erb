@@ -1,17 +1,3 @@
 <h1>Log in</h1>
 
-<form action="<%= session_url %>" method="POST">
-  <%= fat_adder %>
-  
-  <div class="input-group">
-    <label>Username
-      <input type="text" class="form-control" name="username">
-    </label>
-  </div>
-  <div class="input-group">
-    <label>Password
-      <input type="password" class="form-control" name="password">
-    </label>
-  </div>
-  <button class="btn btn-primary">Log in</button>
-</form>
+<%= render "sessions/form" %>
