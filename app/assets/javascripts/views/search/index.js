@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.SearchIndex = Backbone.CompositeView.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.SearchIndex = Backbone.CompositeView.extend({
   template: JST["search/index"],
   
   initialize: function (options) {
@@ -24,9 +24,9 @@ Evernote.Views.SearchIndex = Backbone.CompositeView.extend({
     
     var view = this;
     _(this.notes).each(function (noteObj) {
-      var noteView = new Evernote.Views.NoteView({
+      var noteView = new PurpleNotes.Views.NoteView({
         model: noteObj.note,
-        clearActiveNote: Evernote.Views.NotebookShow.prototype.clearActiveNote.bind({
+        clearActiveNote: PurpleNotes.Views.NotebookShow.prototype.clearActiveNote.bind({
           notes: view.noteViews
         })
       });

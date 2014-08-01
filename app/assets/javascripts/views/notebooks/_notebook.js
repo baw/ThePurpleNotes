@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.NotebookView = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.NotebookView = Backbone.View.extend({
   events: {
     "click .editNotebookTitleButton": "editNotebookTitleButton",
     "submit .editNotebookTitleForm": "editNotebookTitleFormSubmit",
@@ -57,7 +57,7 @@ Evernote.Views.NotebookView = Backbone.View.extend({
       success: function () {
         var note;
         while (note = notes.first()) {
-          var taggings = Evernote.Collections.taggings.where({
+          var taggings = PurpleNotes.Collections.taggings.where({
             "note_id": parseInt(note.escape("id"), 10)
           });
           

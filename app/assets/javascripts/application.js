@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require evernote
+//= require purple_notes
 //= require_tree ./utilities/
 //= require_tree ../templates
 //= require_tree ./models

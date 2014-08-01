@@ -1,11 +1,11 @@
-/*global Evernote */
-Evernote.Models.Notebook = Backbone.Model.extend({
+/*global PurpleNotes */
+PurpleNotes.Models.Notebook = Backbone.Model.extend({
   associatedWithName: "notes",
   urlRoot: "api/notebooks",
   
   notes: function () {
     if (this._notes === undefined) {
-      this._notes = new Evernote.Collections.Notes([], {
+      this._notes = new PurpleNotes.Collections.Notes([], {
         notebook: this
       });
     }

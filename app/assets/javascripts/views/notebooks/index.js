@@ -1,9 +1,9 @@
-/*global Evernote, JST */
-Evernote.Views.NotebooksIndex = Backbone.CompositeView.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.NotebooksIndex = Backbone.CompositeView.extend({
   template: JST["notebooks/index"],
   
   addNotebook: function (notebook) {
-    var notebookView = new Evernote.Views.NotebookView({
+    var notebookView = new PurpleNotes.Views.NotebookView({
       model: notebook,
       notebookViews: this.notebookViews
     });
@@ -31,7 +31,7 @@ Evernote.Views.NotebooksIndex = Backbone.CompositeView.extend({
   },
   
   renderFormNew: function () {
-    var renderedFormNew = new Evernote.Views.NotebookNew();
+    var renderedFormNew = new PurpleNotes.Views.NotebookNew();
     
     this.addSubview(".form", renderedFormNew);
   },

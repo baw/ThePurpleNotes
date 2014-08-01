@@ -1,9 +1,9 @@
-/*global Evernote, JST*/
-Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
+/*global PurpleNotes, JST*/
+PurpleNotes.Views.NotebookShow = Backbone.CompositeView.extend({
   template: JST["notebooks/show"],
   
   addNote: function (note) {
-    var renderedNoteView = new Evernote.Views.NoteView({
+    var renderedNoteView = new PurpleNotes.Views.NoteView({
       clearActiveNote: this.clearActiveNote.bind(this),
       model: note
     });
@@ -55,7 +55,7 @@ Evernote.Views.NotebookShow = Backbone.CompositeView.extend({
   },
   
   renderNoteNew: function () {
-    var renderedNoteNewView = new Evernote.Views.NoteNew({
+    var renderedNoteNewView = new PurpleNotes.Views.NoteNew({
       clearActiveNote: this.clearActiveNote.bind(this),
       collection: this.model.notes()
     });

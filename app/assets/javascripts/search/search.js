@@ -1,5 +1,5 @@
-/*global Evernote*/
-Evernote.Searches.search = function ($search, $div) {
+/*global PurpleNotes*/
+PurpleNotes.Searches.search = function ($search, $div) {
   var count = function (searchString, stringToSearch) {
     searchString = searchString.toLowerCase();
     stringToSearch = stringToSearch.toLowerCase();
@@ -31,7 +31,7 @@ Evernote.Searches.search = function ($search, $div) {
     var results = [];
     
     if (searchString === "") return [];
-    _(Evernote.Collections.notebooks.models).each(function (notebooks) {
+    _(PurpleNotes.Collections.notebooks.models).each(function (notebooks) {
       _(notebooks.notes().models).each(function (note) {
         var num = 0;
         
@@ -55,7 +55,7 @@ Evernote.Searches.search = function ($search, $div) {
       
       results.sort(sortByCount);
       
-      Evernote.Searches.displayResults(results.slice(0, 10), $div);
+      PurpleNotes.Searches.displayResults(results.slice(0, 10), $div);
     });
   });
 };

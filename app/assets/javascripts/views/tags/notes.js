@@ -1,9 +1,9 @@
-/*global Evernote, JST */
-Evernote.Views.TagNotes = Backbone.CompositeView.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.TagNotes = Backbone.CompositeView.extend({
   template: JST["tags/notes"],
   
   addNote: function (note) {
-    var noteView = new Evernote.Views.NoteView({
+    var noteView = new PurpleNotes.Views.NoteView({
       model: note,
       clearActiveNote: this.clearActiveNote
     });
@@ -17,7 +17,7 @@ Evernote.Views.TagNotes = Backbone.CompositeView.extend({
     this.notes = options.notes;
     this.noteListSelector = ".notes-list";
     this.listenTo(
-      Evernote.Collections.taggings,
+      PurpleNotes.Collections.taggings,
       "change:name add remove",
       this.render
     );
@@ -45,7 +45,7 @@ Evernote.Views.TagNotes = Backbone.CompositeView.extend({
     this.notesView = [];
     
     //TODO: try to figure out away to not use the prototype of another class
-    this.clearActiveNote = Evernote.Views.NotebookShow.prototype.clearActiveNote.bind({
+    this.clearActiveNote = PurpleNotes.Views.NotebookShow.prototype.clearActiveNote.bind({
       notes: this.notesView
     }),
     

@@ -1,5 +1,5 @@
-/*global Evernote */
-Evernote.Models.Note = Backbone.Model.extend({
+/*global PurpleNotes */
+PurpleNotes.Models.Note = Backbone.Model.extend({
   parse: function (jsonResponse) {
     if (jsonResponse.sharing) {
       this.sharing().set(jsonResponse.sharing);
@@ -11,14 +11,14 @@ Evernote.Models.Note = Backbone.Model.extend({
   
   sharing: function () {
     if (this._sharing === undefined) {
-      this._sharing = new Evernote.Models.Sharing();
+      this._sharing = new PurpleNotes.Models.Sharing();
     }
     
     return this._sharing;
   },
   
   tags: function () {
-    return Evernote.Collections.taggings.where({
+    return PurpleNotes.Collections.taggings.where({
       "note_id": this.id
     });
   },

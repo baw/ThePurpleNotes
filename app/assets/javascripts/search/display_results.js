@@ -1,10 +1,10 @@
-/*global Evernote */
-Evernote.Searches.displayResults = function (notes, $div) {
-  Evernote.Searches.view && Evernote.Searches.view.remove();
+/*global PurpleNotes */
+PurpleNotes.Searches.displayResults = function (notes, $div) {
+  PurpleNotes.Searches.view && PurpleNotes.Searches.view.remove();
   
-  Evernote.Searches.view = new Evernote.Views.SearchIndex({
+  PurpleNotes.Searches.view = new PurpleNotes.Views.SearchIndex({
     notes: notes
   });
   
-  $div.html(Evernote.Searches.view.render().$el);
+  $div.html(PurpleNotes.Searches.view.render().$el);
 };

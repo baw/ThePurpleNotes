@@ -1,5 +1,5 @@
-/*global EpicEditor, Evernote, JST */
-Evernote.Views.NoteShow = Backbone.CompositeView.extend({
+/*global EpicEditor, PurpleNotes, JST */
+PurpleNotes.Views.NoteShow = Backbone.CompositeView.extend({
   events: {
     "click .save":"saveContent",
     "click .delete": "deleteContent"
@@ -37,7 +37,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   initialize: function () {
-    this.listenTo(Evernote.Collections.taggings, "sync add remove", this.renderTags);
+    this.listenTo(PurpleNotes.Collections.taggings, "sync add remove", this.renderTags);
     this.listenTo(this.model, "sync", this.renderShare);
     this.shareURLContainer = ".shareUrlContainer";
   },
@@ -66,7 +66,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
     this.$(this.shareURLContainer).html("");
     this.removeSubviews(this.shareURLContainer);
     
-    var shareView = new Evernote.Views.Sharing({
+    var shareView = new PurpleNotes.Views.Sharing({
       model: this.model
     });
     
@@ -78,7 +78,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
     
     var view = this;
     _(this.model.tags()).each(function (tag) {
-      var tagView = new Evernote.Views.TagShow({
+      var tagView = new PurpleNotes.Views.TagShow({
         model: tag
       });
       view.addSubview(".tags", tagView);
@@ -86,7 +86,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   renderTagsNew: function () {
-    var tagsNew = new Evernote.Views.TagsNew({
+    var tagsNew = new PurpleNotes.Views.TagsNew({
       collection: this.model.tags(),
       note: this.model
     });
@@ -95,7 +95,7 @@ Evernote.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   renderTitle: function () {
-    var noteTitleView = new Evernote.Views.NoteTitle({
+    var noteTitleView = new PurpleNotes.Views.NoteTitle({
       model: this.model
     });
     

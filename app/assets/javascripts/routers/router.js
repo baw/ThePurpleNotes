@@ -1,5 +1,5 @@
-/*global Evernote */
-Evernote.Routers.Router = Backbone.Router.extend({
+/*global PurpleNotes */
+PurpleNotes.Routers.Router = Backbone.Router.extend({
   routes: {
     "notebooks/:id": "notebookShow",
     "notebooks/:id/notes/:id": "noteShow",
@@ -15,15 +15,15 @@ Evernote.Routers.Router = Backbone.Router.extend({
   
   //Shows the notes for the current notebook
   notebookShow: function (id) {
-    var notebook = Evernote.Collections.notebooks.getOrFetch(id);
+    var notebook = PurpleNotes.Collections.notebooks.getOrFetch(id);
     
-    var notebookShow = new Evernote.Views.NotebookShow({
+    var notebookShow = new PurpleNotes.Views.NotebookShow({
       model: notebook
     });
     
     var note = notebook.notes().first();
     if (note) {
-      var noteShowView = new Evernote.Views.NoteShow({
+      var noteShowView = new PurpleNotes.Views.NoteShow({
         model: note
       });
       
@@ -40,10 +40,10 @@ Evernote.Routers.Router = Backbone.Router.extend({
   
   //shows the note in the noteditor
   noteShow: function (notebookId, noteId) {
-    var notebook = Evernote.Collections.notebooks.getOrFetch(notebookId);
+    var notebook = PurpleNotes.Collections.notebooks.getOrFetch(notebookId);
     var note = notebook.notes().getOrFetch(noteId);
     
-    var noteShowView = new Evernote.Views.NoteShow({
+    var noteShowView = new PurpleNotes.Views.NoteShow({
       model: note
     });
     
@@ -53,12 +53,12 @@ Evernote.Routers.Router = Backbone.Router.extend({
   
   tagShow: function (id) {
     id = parseInt(id, 10);
-    var taggings = Evernote.Collections.taggings.where({
+    var taggings = PurpleNotes.Collections.taggings.where({
       "tag_id": id
     });
     
     var notes = _(taggings).map(function (tagging) {
-      var notebook = Evernote.Collections.notebooks.getOrFetch(
+      var notebook = PurpleNotes.Collections.notebooks.getOrFetch(
         tagging.escape("notebook_id")
       );
       
@@ -69,7 +69,7 @@ Evernote.Routers.Router = Backbone.Router.extend({
       return note.get("title");
     });
     
-    var tagShowView = new Evernote.Views.TagNotes({
+    var tagShowView = new PurpleNotes.Views.TagNotes({
       notes: notes,
       model: taggings[0]
     });

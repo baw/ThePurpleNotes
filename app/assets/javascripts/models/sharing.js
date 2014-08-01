@@ -1,4 +1,4 @@
-/*global Evernote */
-Evernote.Models.Sharing = Backbone.Model.extend({
+/*global PurpleNotes */
+PurpleNotes.Models.Sharing = Backbone.Model.extend({
   urlRoot: "api/sharings"
 });

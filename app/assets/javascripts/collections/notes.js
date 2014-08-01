@@ -1,6 +1,6 @@
-/*global Evernote */
-Evernote.Collections.Notes = Backbone.Collection.extend({
-  model: Evernote.Models.Note,
+/*global PurpleNotes */
+PurpleNotes.Collections.Notes = Backbone.Collection.extend({
+  model: PurpleNotes.Models.Note,
   
   comparator: function (note) {
     return note.escape("title").toLowerCase();

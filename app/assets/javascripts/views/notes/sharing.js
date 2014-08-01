@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.Sharing = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.Sharing = Backbone.View.extend({
   events: {
     "click .share": "shareContent",
     "click .unShare": "unShareContent"

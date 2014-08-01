@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.NoteView = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.NoteView = Backbone.View.extend({
   events: {
     "click .note-item": "makeActive"
   },

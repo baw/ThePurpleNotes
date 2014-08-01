@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.TagsNew = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.TagsNew = Backbone.View.extend({
   className: "tagForm fa fa-plus",
   events: {
     "submit": "submitForm",
@@ -40,7 +40,7 @@ Evernote.Views.TagsNew = Backbone.View.extend({
     var $tagName = $("#tagName");
     var tagName = $tagName.val();
     
-    Evernote.Collections.taggings.create({
+    PurpleNotes.Collections.taggings.create({
       "name": tagName,
       "note_id": this.note.id
     });

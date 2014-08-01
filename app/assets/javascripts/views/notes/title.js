@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.NoteTitle = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.NoteTitle = Backbone.View.extend({
   events: {
     "click .editTitle": "editTitle",
     "submit form": "changeTitle"

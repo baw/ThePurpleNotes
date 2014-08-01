@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.TagsIndex = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.TagsIndex = Backbone.View.extend({
   template: JST["tags/index"],
   
   initialize: function () {

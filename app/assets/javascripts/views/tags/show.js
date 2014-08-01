@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.TagShow = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.TagShow = Backbone.View.extend({
   className: "tag",
   events: {
     "click .tagDelete" : "tagDelete"

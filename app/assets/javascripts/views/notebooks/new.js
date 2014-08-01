@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.NotebookNew = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.NotebookNew = Backbone.View.extend({
   events: {
     "submit": "formSubmit"
   },
@@ -12,7 +12,7 @@ Evernote.Views.NotebookNew = Backbone.View.extend({
     var title = $notebookTitle.val();
     $notebookTitle.val("");
     
-    var notebook = Evernote.Collections.notebooks.create({
+    var notebook = PurpleNotes.Collections.notebooks.create({
       "title": title
     }, {
       success: function () {

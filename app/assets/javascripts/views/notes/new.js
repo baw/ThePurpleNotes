@@ -1,5 +1,5 @@
-/*global Evernote, JST */
-Evernote.Views.NoteNew = Backbone.View.extend({
+/*global PurpleNotes, JST */
+PurpleNotes.Views.NoteNew = Backbone.View.extend({
   events: {
     "submit": "formSubmit"
   },
