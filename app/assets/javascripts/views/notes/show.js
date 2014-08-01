@@ -28,9 +28,15 @@ PurpleNotes.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   deleteContent: function () {
-    this.model.destroy();
+    //need to make 'this.model' null prior to destroy the model to make it null
+    //before remove event is triggered
+    var note = this.model;
+    this.model = null;
     
-    Backbone.history.navigate("/notebooks/" + this.model.get("notebook_id"), {
+    var notebookID = note.get("notebook_id");
+    note.destroy();
+    
+    Backbone.history.navigate("/notebooks/" + notebookID, {
       trigger: true
     });
     this.model = null;
