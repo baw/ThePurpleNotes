@@ -24,7 +24,6 @@ PurpleNotes.Views.TagNotes = Backbone.CompositeView.extend({
   },
   
   remove: function () {
-    debugger;
     this.clearActiveNote();
     Backbone.CompositeView.prototype.remove.call(this);
   },
