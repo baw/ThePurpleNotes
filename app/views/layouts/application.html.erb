@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<%= yield :body || "<body>" %>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
       <div class="navbar-header">
