@@ -2,7 +2,8 @@
 PurpleNotes.Views.NoteTitle = Backbone.View.extend({
   events: {
     "click .editTitle": "editTitle",
-    "submit form": "changeTitle"
+    "submit form": "changeTitle",
+    "blur #newTitle": "changeTitle"
   },
   template: JST["notes/title"],
   
