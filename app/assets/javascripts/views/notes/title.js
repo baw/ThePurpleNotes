@@ -25,6 +25,8 @@ PurpleNotes.Views.NoteTitle = Backbone.View.extend({
       event.preventDefault();
       this.edit = true;
       this.render();
+      
+      $("#newTitle").focus();
   },
   
   initialize: function () {
