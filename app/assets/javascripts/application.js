@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require epiceditor
-//= require turbolinks
 //= require underscore
 //= require backbone
 //= require purple_notes
