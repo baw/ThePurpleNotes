@@ -1,9 +1,20 @@
 /*global PurpleNotes */
 PurpleNotes.Routers.Router = Backbone.Router.extend({
   routes: {
+    "": "clearArea",
     "notebooks/:id": "notebookShow",
     "notebooks/:id/notes/:id": "noteShow",
     "tags/:id": "tagShow"
+  },
+  
+  clearArea: function () {
+    console.log("clearArea");
+    this._swapViews("noteEditor", null, {
+      clear: true
+    });
+    this._swapViews("notes", null, {
+      clear: true
+    });
   },
   
   initialize: function (options) {
