@@ -7,7 +7,7 @@ PurpleNotes.Views.Sharing = Backbone.View.extend({
   template: JST["notes/sharing"],
   
   initialize: function () {
-    this.sharing = this.model.sharing();
+    this.sharing = this.model && this.model.sharing();
     this.listenTo(this.sharing, "sync", this.render);
   },
   

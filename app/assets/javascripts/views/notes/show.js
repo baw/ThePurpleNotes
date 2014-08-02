@@ -49,7 +49,9 @@ PurpleNotes.Views.NoteShow = Backbone.CompositeView.extend({
   },
   
   remove: function () {
-    this.model && this.saveContent();
+    if (this.model && this.model.collection.notebook) {
+      this.model && this.saveContent();
+    }
     Backbone.CompositeView.prototype.remove.call(this);
     this.editor.removeListener("autosave");
   },

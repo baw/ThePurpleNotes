@@ -53,23 +53,13 @@ PurpleNotes.Views.NotebookView = Backbone.View.extend({
   
   removeNotebook: function () {
     var notes = this.model.notes();
+    notes.notebook = null;
     this.model.destroy({
       success: function () {
-        var note;
-        while (note = notes.first()) {
-          var taggings = PurpleNotes.Collections.taggings.where({
-            "note_id": parseInt(note.escape("id"), 10)
-          });
-          
-          var tagging;
-          while (tagging = taggings.pop()) {
-            tagging.trigger("destroy", tagging);
-          }
-          
-          note.trigger("destroy", note);
-        }
-        
-        notes.remove();
+        debugger;
+        Backbone.history.navigate("/", {
+          trigger: true
+        });
       }
     });
   },
