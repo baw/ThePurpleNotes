@@ -1,5 +1,5 @@
 <% if current_user %>
-  <li><%= button_to "Sign Out",
+  <li><%= button_to "Sign Out: " + current_user.username,
                 session_url,
                 method: :delete,
                 class: "btn btn-danger navbar-btn" %></li>
