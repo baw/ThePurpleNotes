@@ -11,7 +11,7 @@ user = User.find_by(username: "user")
 
 user ||= User.create!({username: "user", password: "password"})
 
-notebook = Notebook.find_by(title: "Shakespeare's Sonnets")
+notebook = Notebook.find_by(title: "Shakespeare's Sonnets", user_id: user.id)
 
 notebook && notebook.destroy
 
