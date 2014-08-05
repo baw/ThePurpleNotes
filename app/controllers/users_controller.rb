@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       session[:username] = username
       session[:password] = password
       
+      seed_new_user(@user)
     end
     
     redirect_to backbone_url
