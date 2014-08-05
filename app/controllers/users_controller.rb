@@ -15,6 +15,26 @@ class UsersController < ApplicationController
     end
   end
   
+  def guest_account
+    if session[:username] && session[:password]
+      @user = User.find_by_credentials(session[:username], session[:password])
+      log_in(@user)
+    else
+      userCount = User.count
+      username = "Guest " + userCount.to_s
+      password = SecureRandom::urlsafe_base64(16)
+      
+      @user = User.new(username: username, password: password)
+      
+      log_in(@user)
+      session[:username] = username
+      session[:password] = password
+      
+    end
+    
+    redirect_to backbone_url
+  end
+  
   private
   
   def user_params
