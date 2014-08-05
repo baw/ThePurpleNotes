@@ -1,3 +1,5 @@
+![Code Climte Rating](https://codeclimate.com/github/imamathwiz/ThePurpleNotes/badges/gpa.svg)
+
 # The Purple Notes
 The Purple Notes is an Evernote clone written with a Rails backend and Backbone
 for the frontend. Here's a link to a live version of the site:
