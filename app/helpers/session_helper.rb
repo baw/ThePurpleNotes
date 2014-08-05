@@ -15,6 +15,6 @@ module SessionHelper
   end
   
   def require_logged_in
-    redirect_to new_session_url unless current_user
+    redirect_to root_url unless current_user
   end
 end
