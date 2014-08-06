@@ -5,7 +5,6 @@ Backbone.Collection.prototype.getOrFetch = function (id) {
   if (obj) {
     return obj;
   } else {
-    console.log("fetch");
     obj = new this.model({ "id": id });
     this.add(obj);
     

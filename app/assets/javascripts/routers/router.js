@@ -8,7 +8,6 @@ PurpleNotes.Routers.Router = Backbone.Router.extend({
   },
   
   clearArea: function () {
-    console.log("clearArea");
     this._swapViews("noteEditor", null, {
       clear: true
     });
