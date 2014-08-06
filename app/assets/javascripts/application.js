@@ -10,11 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require jquery_ujs
-//= require epiceditor
-//= require underscore
-//= require backbone
 //= require purple_notes
 //= require_tree ./utilities/
 //= require_tree ../templates

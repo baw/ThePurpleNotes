@@ -9,7 +9,12 @@ PurpleNotes.Views.NoteShow = Backbone.CompositeView.extend({
   afterRender: function () {
     this.editor = new EpicEditor({
       clientSideStorage: false,
-      focusOnLoad: true
+      focusOnLoad: true,
+      theme: {
+        base: 'http://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/base/epiceditor.css',
+        preview: 'http://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/preview/github.css',
+        editor: 'http://cdnjs.cloudflare.com/ajax/libs/epiceditor/0.2.2/themes/editor/epic-light.css'
+      }
     });
     
     this.editor.load();

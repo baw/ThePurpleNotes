@@ -12,13 +12,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'redcarpet'
 
 gem 'uglifier', '>= 1.3.0'
+gem 'sass'
 
 gem 'jquery-rails'
-gem 'epic-editor-rails'
-gem 'underscore-rails'
-gem 'backbone-on-rails'
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'font-awesome-rails'
 
 gem 'thin'
 
