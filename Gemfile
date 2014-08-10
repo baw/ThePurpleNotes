@@ -13,6 +13,7 @@ gem 'redcarpet'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'sass'
+gem 'ejs'
 
 gem 'jquery-rails'
 
