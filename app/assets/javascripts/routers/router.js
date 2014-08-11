@@ -25,8 +25,16 @@ PurpleNotes.Routers.Router = Backbone.Router.extend({
   
   //Shows the notes for the current notebook
   notebookShow: function (id) {
-    var notebook = PurpleNotes.Collections.notebooks.getOrFetch(id);
-    
+    var notebook;
+    PurpleNotes.Collections.notebooks.each(function (nb) {
+      if (nb.id === parseInt(id, 10)) {
+        nb.set("active", true);
+        notebook = nb;
+      } else if (nb.get("active")) {
+        nb.set("active", false);
+      }
+    });
+        
     var notebookShow = new PurpleNotes.Views.NotebookShow({
       model: notebook
     });
