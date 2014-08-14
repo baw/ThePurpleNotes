@@ -33,6 +33,7 @@ group :development do
   
   gem 'lol_dba'
   gem "bullet"
+  gem 'rack-mini-profiler'
   
   gem 'rspec-rails'
   
