@@ -23,3 +23,19 @@
   padding-top: 9px;
   padding-bottom: 9px;
 }
+
+#saveStatus {
+  border: 3px solid transparent;
+  -moz-transition: border-color 0.5s ease;
+  -o-transition: border-color 0.5s ease;
+  -webkit-transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease;
+}
+
+#saveStatus.edited {
+  border-color: #c9302c;
+}
+
+#saveStatus.saved {
+  border-color: #5cb85c;
+}

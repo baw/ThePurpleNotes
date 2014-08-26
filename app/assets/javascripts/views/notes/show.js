@@ -25,6 +25,7 @@ PurpleNotes.Views.NoteShow = Backbone.CompositeView.extend({
   
   autoSave: function () {
     var view = this;
+    this.$("#saveStatus").addClass("edited").removeClass("saved");
     
     this.timeout && clearTimeout(this.timeout);
     this.timeout = setTimeout(function () {
@@ -117,6 +118,8 @@ PurpleNotes.Views.NoteShow = Backbone.CompositeView.extend({
   
   saveContent: function (event) {
     this.timeout && clearTimeout(this.timeout);
+    
+    this.$("#saveStatus").addClass("saved").removeClass("edited");
     
     var content = this.editor.exportFile();
     this.model.save({ "content": content });
