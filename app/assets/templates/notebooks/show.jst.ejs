@@ -1,9 +1,9 @@
 <h1><%= notebook.escape("title") %></h1>
 <h2>Sort By:</h2>
-<ul class="sortBy">
-  <li><a class="by" data-sort="title" href="">Title</a></li>
-  <li><a class="by" data-sort="created_on" href="">Created On</a></li>
-  <li><a class="by" data-sort="updated_on" href="">Last Update</a></li>
+<ul class="sort">
+  <li><button class="by" data-sort="title">Title</button></li>
+  <li><button class="by" data-sort="created_at">Created On</button></li>
+  <li><button class="by" data-sort="updated_at">Last Update</button></li>
 </ul>
 <div class="list-group notes-list"></div>
 <div class="newNoteForm"></div>

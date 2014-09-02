@@ -1,5 +1,9 @@
 /*global PurpleNotes, JST*/
 PurpleNotes.Views.NotebookShow = Backbone.CompositeView.extend({
+  events: {
+    "click .sort .by" : "sortBy"
+  },
+  
   template: JST["notebooks/show"],
   
   addNote: function (note) {
@@ -23,7 +27,7 @@ PurpleNotes.Views.NotebookShow = Backbone.CompositeView.extend({
     this.notesList = ".notes-list";
     
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.notes(), "change:title add remove", this.renderNotes);
+    this.listenTo(this.model.notes(), "change:title add remove sort", this.renderNotes);
   },
   
   remove: function () {
@@ -45,6 +49,7 @@ PurpleNotes.Views.NotebookShow = Backbone.CompositeView.extend({
   },
   
   renderNotes: function () {
+    debugger;
     this.notes = [];
     this.$(this.notesList).html("");
     this.removeSubviews(this.notesList);
@@ -61,5 +66,25 @@ PurpleNotes.Views.NotebookShow = Backbone.CompositeView.extend({
     });
     
     this.addSubview(".newNoteForm", renderedNoteNewView);
+  },
+  
+  sortBy: function (event) {
+    debugger;
+    console.log("sortBy");
+    event.preventDefault();
+    var $target = $(event.target);
+    var sorting = $target.data("sort");
+    
+    console.log(sorting);
+    
+    this.model.notes().comparator = function (model) {
+      if (sorting === "created_at" || sorting === "updated_at") {
+        return  - new Date(model.escape(sorting)).getTime();
+      } else {
+        return "-" + model.escape(sorting).toLowerCase();
+      }
+    }
+    
+    this.model.notes().sort();
   }
 });
