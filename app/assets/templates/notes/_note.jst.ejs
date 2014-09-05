@@ -1,5 +1,8 @@
 <div class="btn-group">
   <a class="note-item btn btn-default <%= makeActive %>" href="#/notebooks/<%= note.escape('notebook_id') %>/notes/<%= note.escape('id') %>">
+    <% if (showNotebook) { %>
+        <%= note.collection.notebook.escape("title") %> -
+    <% } %>
     <%= note.escape("title") %>
   </a>
 </div>

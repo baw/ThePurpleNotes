@@ -7,6 +7,7 @@ PurpleNotes.Views.NoteView = Backbone.View.extend({
   
   initialize: function (options) {
     this.clearActiveNote = options.clearActiveNote;
+    this.showNotebook = options.showNotebook;
     
     this.listenTo(this.model, "sync change:title change:active", this.render);
   },
@@ -21,7 +22,8 @@ PurpleNotes.Views.NoteView = Backbone.View.extend({
   render: function () {
     var renderedContent = this.template({
       makeActive: this.model.get("active") ? "active" : "",
-      note: this.model
+      note: this.model,
+      showNotebook: this.showNotebook
     });
     
     this.$el.html(renderedContent);

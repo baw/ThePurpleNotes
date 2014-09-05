@@ -25,6 +25,7 @@ PurpleNotes.Views.SearchIndex = Backbone.CompositeView.extend({
     var view = this;
     _(this.notes).each(function (noteObj) {
       var noteView = new PurpleNotes.Views.NoteView({
+        showNotebook: true,
         model: noteObj.note,
         clearActiveNote: PurpleNotes.Views.NotebookShow.prototype.clearActiveNote.bind({
           notes: view.noteViews
