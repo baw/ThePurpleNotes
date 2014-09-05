@@ -3,6 +3,7 @@ PurpleNotes.Views.NotebookView = Backbone.View.extend({
   events: {
     "click .editNotebookTitleButton": "editNotebookTitleButton",
     "submit .editNotebookTitleForm": "editNotebookTitleFormSubmit",
+    "blur .editNotebookTitleForm": "editNotebookTitleFormSubmit",
     "click .removeNotebook": "removeNotebook",
     "click .notebook-item": "makeActive"
   },
