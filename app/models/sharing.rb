@@ -7,6 +7,7 @@
 #  url        :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
+#  active     :boolean          default(TRUE), not null
 #
 
 class Sharing < ActiveRecord::Base
