@@ -19,6 +19,8 @@ gem 'jquery-rails'
 
 gem 'thin'
 
+gem 'pry-rails' 
+
 group :production do
   gem 'rails_12factor'
   gem 'google-analytics-rails'
@@ -27,7 +29,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails'
   gem 'quiet_assets'
   gem 'annotate'
   
