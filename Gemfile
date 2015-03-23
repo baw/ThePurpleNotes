@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "2.1.2"
 
-gem "bcrypt", "> 3.1.0"
+gem "bcrypt", "~> 3.1.0"
 gem "ejs", "~> 1.1.0"
 gem "jbuilder", "~> 2.1.0"
 gem "jquery-rails", "~> 3.1.0"
