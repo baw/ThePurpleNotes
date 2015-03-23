@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.1.2"
+ruby "2.2.1"
 
 gem "bcrypt", "~> 3.1.0"
 gem "ejs", "~> 1.1.0"
