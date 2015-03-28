@@ -1,7 +1,11 @@
 class StaticController < ApplicationController
   before_action :require_logged_in, only: [:backbone]
   def root
-    render :root
+    if current_user.nil?
+      render :root
+    else
+      redirect_to backbone_url
+    end
   end
   
   def backbone
