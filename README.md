@@ -18,7 +18,6 @@ for the frontend. Here's a link to a live version of the site:
 ## Todo
 * Searching of specific notebooks/tags
 * Resize homepage image
-* Add visual indication of auto saving
 * Combine notes showing into one view
 * Add description of markdown
 
