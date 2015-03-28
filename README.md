@@ -16,7 +16,6 @@ for the frontend. Here's a link to a live version of the site:
 * Viewing notes by tags or notebooks
   
 ## Todo
-* Setup guest account
 * Searching of specific notebooks/tags
 * Resize homepage image
 * Add visual indication of auto saving
