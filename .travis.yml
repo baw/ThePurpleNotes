@@ -1,4 +1,7 @@
 language: ruby
 rvm: 2.2.1
 install: bundle install --without production development
+before_script: rake db:create db:migrate db:seed
 script: rspec
+addons:
+  postgresql: "9.3"
