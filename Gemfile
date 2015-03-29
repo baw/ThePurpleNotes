@@ -34,3 +34,6 @@ group :production do
   gem "rails_12factor", "~> 0.0.0"
 end
 
+group :test do
+  gem "codeclimate-test-reporter", "~> 0.4.7"
+end
