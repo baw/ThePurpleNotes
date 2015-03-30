@@ -8,10 +8,17 @@ FactoryGirl.define do
     title { Faker::Name.title }
     content { Faker::Lorem.paragraph(2) }
     association :notebook, factory: :notebook
+    association :sharing, factory: :sharing
   end
   
   factory :notebook do
     title { Faker::Name.title }
     association :user, factory: :user
+  end
+  
+  factory :sharing do
+    url { Faker::Internet.slug }
+    active true
+    association :note, factory: :note
   end
 end
