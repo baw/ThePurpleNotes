@@ -11,6 +11,6 @@
 class Tag < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   
-  has_many :taggables
-  has_many :notes, through: :taggables, source: :note
+  has_many :taggings
+  has_many :notes, through: :taggings, source: :note
 end
