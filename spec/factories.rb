@@ -19,6 +19,13 @@ FactoryGirl.define do
   factory :sharing do
     url { Faker::Internet.slug }
     active true
-    association :note, factory: :note
+    
+    after :build do |sharing, elevator|
+      if elevator.note.nil?
+        sharing.note = create :note, sharing: sharing
+      else
+        sharing.note = elevator.note
+      end
+    end
   end
 end
