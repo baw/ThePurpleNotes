@@ -119,9 +119,15 @@ PurpleNotes.Views.NoteShow = Backbone.CompositeView.extend({
   saveContent: function (event) {
     this.timeout && clearTimeout(this.timeout);
     
-    this.$("#saveStatus").addClass("saved").removeClass("edited");
-    
     var content = this.editor.exportFile();
-    this.model.save({ "content": content });
+    var view = this;
+    this.model.save({ "content": content }, {
+        success: function () {
+            view.$("#saveStatus").addClass("saved").removeClass("edited");
+        },
+        error: function () {
+            alert("There was a problem in saving your note.");
+        }
+    });
   }
 });
