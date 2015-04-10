@@ -26,5 +26,5 @@ for the frontend. Here's a link to a live version of the site:
 * [Backbone](http://backbonejs.org/)
 * [Underscore](http://underscorejs.org/)
 * [jQuery](http://jquery.com/)
-* [epiceditor](http://epiceditor.com/)
-* [bootstrap](http://getbootstrap.com/)
+* [EpicEditor](http://epiceditor.com/)
+* [Bootstrap](http://getbootstrap.com/)
