@@ -25,6 +25,6 @@ for the frontend. Here's a link to a live version of the site:
 ## Libraries Used
 * [Backbone](http://backbonejs.org/)
 * [Underscore](http://underscorejs.org/)
-* [Jquery](http://jquery.com/)
+* [jQuery](http://jquery.com/)
 * [epiceditor](http://epiceditor.com/)
 * [bootstrap](http://getbootstrap.com/)
