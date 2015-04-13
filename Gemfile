@@ -3,7 +3,7 @@ ruby "2.2.1"
 
 gem "bcrypt", "~> 3.1.0"
 gem "ejs", "~> 1.1.0"
-gem "jbuilder", "~> 2.1.0"
+gem "jbuilder", "~> 2.2.13"
 gem "jquery-rails", "~> 4.0.3"
 gem "pg", "~> 0.17.0"
 gem "pry-rails", "~> 0.3.0"
