@@ -18,7 +18,7 @@ group :development do
   gem "annotate", "~> 2.6.0"
   gem "better_errors", "~> 2.1.1"
   gem "binding_of_caller", "~> 0.7.0"
-  gem "bullet", "~> 4.13.0"
+  gem "bullet", "~> 4.14.4"
   gem "lol_dba", "~> 1.6.0"
   gem "quiet_assets", "~> 1.0.0"
   gem "rack-mini-profiler", "~> 0.9.0"
