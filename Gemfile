@@ -20,7 +20,7 @@ group :development do
   gem "binding_of_caller", "~> 0.7.0"
   gem "bullet", "~> 4.14.4"
   gem "lol_dba", "~> 1.6.0"
-  gem "quiet_assets", "~> 1.0.0"
+  gem "quiet_assets", "~> 1.1.0"
   gem "rack-mini-profiler", "~> 0.9.0"
   gem "spring", "~> 1.1.0"
 end
