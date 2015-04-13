@@ -16,7 +16,7 @@ gem "uglifier", "~> 2.5.0"
 
 group :development do
   gem "annotate", "~> 2.6.0"
-  gem "better_errors", "~> 1.1.0"
+  gem "better_errors", "~> 2.1.1"
   gem "binding_of_caller", "~> 0.7.0"
   gem "bullet", "~> 4.13.0"
   gem "lol_dba", "~> 1.6.0"
