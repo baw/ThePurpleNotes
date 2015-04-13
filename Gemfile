@@ -9,7 +9,7 @@ gem "pg", "~> 0.17.0"
 gem "pry-rails", "~> 0.3.0"
 gem "rails", "~> 4.2.0"
 gem "redcarpet", "~> 3.2.3"
-gem "sass", "~> 3.3.0"
+gem "sass", "~> 3.4.13"
 gem "thin", "~> 1.6.0"
 gem "uglifier", "~> 2.7.1"
 
