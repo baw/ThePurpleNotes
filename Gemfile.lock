@@ -195,7 +195,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.5.3)
+    uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     uniform_notifier (1.8.0)
@@ -230,4 +230,4 @@ DEPENDENCIES
   spring (~> 1.1.0)
   thin (~> 1.6.0)
   turbolinks (~> 2.2.0)
-  uglifier (~> 2.5.0)
+  uglifier (~> 2.7.1)

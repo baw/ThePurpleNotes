@@ -12,7 +12,7 @@ gem "redcarpet", "~> 3.2.3"
 gem "sass", "~> 3.3.0"
 gem "thin", "~> 1.6.0"
 gem "turbolinks", "~> 2.2.0"
-gem "uglifier", "~> 2.5.0"
+gem "uglifier", "~> 2.7.1"
 
 group :development do
   gem "annotate", "~> 2.6.0"
