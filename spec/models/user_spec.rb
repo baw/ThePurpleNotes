@@ -34,7 +34,7 @@ describe User do
     end
     
     context "with incorrect password" do
-      it "should find the user" do
+      it "should not find the user" do
         user = User.find_by_credentials(@user.username, Faker::Internet.user_name)
         
         expect(user).to be_nil
