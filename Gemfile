@@ -11,7 +11,7 @@ gem "rails", "~> 4.2.1"
 gem "redcarpet", "~> 3.3.2"
 gem "sass", "~> 3.4.13"
 gem "thin", "~> 1.6.0"
-gem "uglifier", "~> 2.7.1"
+gem "uglifier", "~> 2.7.2"
 
 group :development do
   gem "annotate", "~> 2.6.0"
