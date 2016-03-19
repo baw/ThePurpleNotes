@@ -3,10 +3,9 @@ ruby "2.2.1"
 
 gem "bcrypt", "~> 3.1.0"
 gem "ejs", "~> 1.1.0"
-gem "jbuilder", "~> 2.2.13"
-gem "jquery-rails", "~> 4.0.4"
+gem "jbuilder", "~> 2.4.0"
+gem "jquery-rails", "~> 4.1.0"
 gem "pg", "~> 0.18.1"
-gem "pry-rails", "~> 0.3.0"
 gem "rails", "~> 4.2.1"
 gem "redcarpet", "~> 3.3.2"
 gem "sass", "~> 3.4.13"
@@ -20,6 +19,7 @@ group :development do
   gem "bullet", "~> 4.14.4"
   gem "lol_dba", "~> 1.6.0"
   gem "quiet_assets", "~> 1.1.0"
+  gem "pry-rails", "~> 0.3.0"
   gem "rack-mini-profiler", "~> 0.9.0"
   gem "spring", "~> 1.3.4"
 end
@@ -32,7 +32,7 @@ group :development, :test do
 end
 
 group :production do
-  gem "google-analytics-rails", "~> 0.0.0"
+  gem "google-analytics-rails", "~> 1.1.0"
   gem "rails_12factor", "~> 0.0.0"
 end
 
